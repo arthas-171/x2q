@@ -1,5 +1,13 @@
 # a happy day
-a ha
+==================================================================
+## java 基础
+## hdfs&MapReduce 相关
+## spark相关
+## hive相关
+## 数据仓库理论相关
+## flink相关
+## linux相关
+
 
 这个链接用 1 作为网址变量 [Google][1]
 这个链接用 runoob 作为网址变量 [Runoob][runoob]
