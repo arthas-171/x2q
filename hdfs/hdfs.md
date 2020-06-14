@@ -1,11 +1,11 @@
 # hdfs及MapReduce相关文章    
 =======================================================    
 ## hdfs 文件存储格式  
-### [Way Gate](/hdfs/fileAndStore.md)      
+### [Way Gate](/fileAndStore.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/2875351)    
 
 ## hdfs 块(block) 大小的影响 
-### [Way Gate](/hdfs/block.md)      
+### [Way Gate](/block.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/2873733)   
 
 ## mapreduce执行过程概述
