@@ -1,7 +1,7 @@
 # a happy day
 ==================================================================
 ## hdfs&MapReduce 相关
-[Way Gate](/hdfs/hdfs.md)
+[**Way Gate**](/hdfs/hdfs.md)
 ## spark相关
 [Way Gate](/spark/spark.md)
 ## hive相关
