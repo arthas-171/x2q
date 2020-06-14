@@ -13,7 +13,7 @@
 ### [开源中国](https://my.oschina.net/u/2969788/blog/874649)   
   
 ##hdfs 原理
-### [Way Gate](/hdfs/mapReduce.md)      
+### [Way Gate](/hdfs/hdfsDetail.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/869403 )   
   
 ##namenode HA高可用: https://my.oschina.net/u/2969788/blog/3060663 
