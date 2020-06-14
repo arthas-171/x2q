@@ -1,22 +1,22 @@
 # a happy day
 ==================================================================
 ## hdfs&MapReduce 相关
-[Way Gate](/hdfs.md)
+[Way Gate](/hdfs/hdfs.md)
 ## spark相关
-[Way Gate](/spark.md)
+[Way Gate](/spark/spark.md)
 ## hive相关
-[Way Gate](/hive.md)
+[Way Gate](/hive/hive.md)
 ## 数据仓库理论相关
-[Way Gate](/database.md)
+[Way Gate](/database/database.md)
 ## flink相关
-[Way Gate](/flink.md)
+[Way Gate](/flink/flink.md)
 ## java 基础
-[Way Gate](/java.md)
+[Way Gate](/java/java.md)
 ## scala相关
-[Way Gate](/scala.md)
+[Way Gate](/scala/scala.md)
 ## python相关
-[Way Gate](/python.md)
+[Way Gate](/python/python.md)
 ## linux相关
-[Way Gate](/linux.md)
+[Way Gate](/linux/linux.md)
 
 
