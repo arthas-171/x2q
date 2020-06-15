@@ -17,3 +17,4 @@
 + 读取完毕一个block会进行行数校验check num,如果发现和NameNode记录的行数不一致会重新请求NameNode给一个新的block地址进行读取
 + 会并行读取多个block块,最后合并成一个文件
 
+#### 联系邮箱 xxx_xxx@aliyun.com
