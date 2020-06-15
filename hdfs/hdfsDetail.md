@@ -17,19 +17,19 @@ NameNode会在内存维护命名空间,并且在磁盘上生成 命名空间映�
 **block(数据块)**:文件会被切分成多个数据块block进行存储,block默认是64MB,每个block会在多个DataNode节点上存储备份,默认是3份,可以通过配置设置备份个数  
 ##整体架构图
 ![架构图](/static/img/175900_voia_2969788.png)  
-  
+-----------------------------------------  
 ## Secondary NameNode 的工作原理  
   
 当 一个 client 进行 写操作的时候 首先会它会记录在 edit log中,之后 namenode会修改 内存总的"命名空间", fsimage 文件 是 "命名空间映像文件",它是内存中的元数据 ,"命名空间"会被定时的checkpoint(检查点),最后会在硬盘上生成 fsimage文件,fsimage文件是一种序列化格式不能直接修改 
 如果元数据节点失败那么会把checkpoint(检查点)的元数据信息fsimage 加载到内存中辅助元数据节点（secondary NameNode)是帮助 元数据节点(NameNode)将 内存中的 元数据信息 checkpoint到 硬盘上 ,操作比较费时 所有让从 元数据节点来做
-       
+-----------------------------------------        
 ## checkpoint 具体操作  
 + 辅助元数据节点（secondary NameNode)通知 元数据节点(NameNode)生成 新的 日志文件,并且以后的日志都写入到新的日志文件中
 + 辅助元数据节点(secondary NameNode)http协议从元数据节点(NameNode)获取 fsimage文件和旧的日志文件
 + 辅助元数据节点(secondary NameNode)合并 fsimage和日志文件 生成新的fsimage文件
 + 辅助元数据节点(secondary NameNode)将新的fsimage文件传回 元数据节点(NameNode)
 + 元数据节点(NameNode) 将旧的fsimage替换成新的,日志文件也替换成新的(在第一步时生成的)
-  
+-----------------------------------------   
 ## 读取文件过程:  
 + 客户端(client)用FileSystem的open()函数打开文件
 + DistributedFileSystem用RPC调用元数据节点，得到文件的数据块信息。
@@ -42,7 +42,7 @@ NameNode会在内存维护命名空间,并且在磁盘上生成 命名空间映�
 + 当客户端读取完毕数据的时候，调用FSDataInputStream的close函数。
 + 在读取数据的过程中，如果客户端在与数据节点通信出现错误，则尝试连接包含此数据块的下一个数据节点。
 + 失败的数据节点将被记录，以后不再连接。
-  
+-----------------------------------------  
 ## 写入文件  
   
 + 客户端调用create()来创建文件
@@ -53,7 +53,7 @@ NameNode会在内存维护命名空间,并且在磁盘上生成 命名空间映�
 + Data queue由Data Streamer读取，并通知元数据节点分配数据节点，用来存储数据块(每块默认复制3块)。分配的数据节点放在一个pipeline里。
 + Data Streamer将数据块写入pipeline中的第一个数据节点。第一个数据节点将数据块发送给第二个数据节点。第二个数据节点将数据发送给第三个数据节点。
 + DFSOutputStream为发出去的数据块保存了ack queue，等待pipeline中的数据节点告知数据已经写入成功。
-  
+-----------------------------------------   
 ### 如果数据节点在写入的过程中失败  
   
 + 关闭pipeline，将ack queue中的数据块放入data queue的开始。
