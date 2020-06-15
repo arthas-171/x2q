@@ -17,7 +17,7 @@
 ### [开源中国](https://my.oschina.net/u/2969788/blog/869403 )   
   
 ## namenode HA高可用  
-### [Way Gate](/hdfsDetail.md)      
+### [Way Gate](/nameNodeHA.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/3060663)   
    
 ## hdfs上传下载文件详解
