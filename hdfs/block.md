@@ -1,5 +1,6 @@
 # hdfs 块(block) 大小的影响
-
+### [go back](/hdfs.md)      
+### [go home](../README.md)     
 ##hdfs 会将文件划分为块(block),进行存储,每个块默认会备份成三份存储在不同的DataNode节点上,一般情况下块的默认大小是 64MB或者128MB,这样做的好处是
 
 + 减少磁盘寻址时间
