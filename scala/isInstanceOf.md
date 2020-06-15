@@ -1,5 +1,5 @@
 Scala中isInstanceOf 和 asInstanceOf
-### [go back](/hdfs.md)      
+### [go back](/scala.md)      
 ### [go home](../README.md)     
   
 ## Scala中 isInstanceOf

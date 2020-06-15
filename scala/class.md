@@ -1,5 +1,5 @@
 # class,object,trait,case class
-### [go back](/hdfs.md)      
+### [go back](/scala.md)      
 ### [go home](../README.md)     
   
 ## class
@@ -35,3 +35,5 @@ object Test extends ClassName(val parameter){}
 在java中可以通过interface实现多重继承，在Scala中可以通过特征（trait）实现多重继承，不过与java不同的是，
 它可以定义自己的属性和实现方法体，在没有自己的实现方法体时可以认为它时java interface是等价的，
 在Scala中也是一般只能继承一个父类，可以通过多个with进行多重继承。
+
+#### 联系邮箱 xxx_xxx@aliyun.com

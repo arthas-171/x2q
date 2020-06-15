@@ -17,6 +17,8 @@ hdfs 最开始只有行存储的这两种形式 SequenceFile和macFile,除此之
  
 **ORCfile**:是RCfile的升级版,将数据划分为默认大小为250MB的stripe(条带),每个stripe包含索引,数据和footer,ORCfile包换索引比RCfile更加高效    
   
-**Parquet**:parquet基于Google的dremel,擅长处理深度嵌套的数据(有点类似于嵌套多层的json格式),parquet会将嵌套结构整合为平面列存储,    
+**Parquet**:parquet基于Google的dremel,擅长处理深度嵌套的数据(有点类似于嵌套多层的json格式),parquet会将嵌套结构整合为平面列存储,
+
+#### 联系邮箱 xxx_xxx@aliyun.com    
 
 

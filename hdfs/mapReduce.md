@@ -25,3 +25,5 @@ Mapreduce是一个计算框架，输入<k,v>类型的值得到一个计算之后
 + map task执行结束后，开始执行reduce task
 + map task和 reduce task将执行结果反馈给Application master
 + Application master将任务执行的结果反馈pplication manager
+
+#### 联系邮箱 xxx_xxx@aliyun.com
