@@ -8,4 +8,4 @@ NameNode (元数据节点):存储元数据信息,包括 fsimage(命名空间镜�
 NameNode会在内存维护命名空间,并且在磁盘上生成 命名空间映射文件fsimage和日志操作文件 edits_log,命名空间存储了数据块(block)和DataNode的对应关系
               
 **我们可以查看 NameNode在磁盘上生成的文件**
-![日志示例](/zStatic/img/hdfs/165511_JHWG_2969788.png)
+![日志示例](/static/img/165511_JHWG_2969788.png)

@@ -19,6 +19,5 @@
 ## linux相关  
 ### [Way Gate](/linux/linux.md)
 
-11111111111
 
 
