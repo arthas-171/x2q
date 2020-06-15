@@ -1,5 +1,6 @@
 # hadoop 命名空间的维护机制 
-
+### [go back](/hdfs.md)      
+### [go home](../README.md)     
 ##hadoop 1.x secondarynamenode合并edits 和 fsimage 流程
   
 ![合并日志](/static/img/c91504c7f4e344750da4f9d03e6dc897edf.jpg)  

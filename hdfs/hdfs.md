@@ -1,4 +1,5 @@
-# hdfs及MapReduce相关文章    
+# hdfs及MapReduce相关文章       
+### [go home](../README.md)     
 =======================================================    
 ## hdfs 文件存储格式  
 ### [Way Gate](/fileAndStore.md)      

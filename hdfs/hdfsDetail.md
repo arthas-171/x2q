@@ -1,5 +1,6 @@
 # hdfs 原理
-
+### [go back](/hdfs.md)      
+### [go home](../README.md)     
 ##概述:
 Hadoop Distributed File System(HDFS):是一个高吞吐量的分布式文件系统.是分布式计算的基础
 
