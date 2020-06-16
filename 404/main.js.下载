@@ -32,7 +32,7 @@ let mainFunc = (input, position) => {
         case 'exit':
           e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>(๑˘̴͈́꒵˘̴͈̀)۶ˮ вyё вyё~<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
-          window.open("https://arthas-171.github.io/x2q")
+          window.open("https://arthas-171.github.io/x2q",'_self')
           break
         case 'hi':
         case 'hey':
