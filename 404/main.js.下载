@@ -16,28 +16,28 @@ let e_pos = $('#pos')
 
 let mainFunc = (input, position) => {
   if (input === '') {
-    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + '<br/>')
+    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + '<br/>')
     e_html.animate({ scrollTop: $(document).height() }, 0)
   } else {
     command = input.split(' ')[0]
     if (commandList.indexOf(command) === -1) {
-      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + 'zsh: command not found: ' + command + '<br/>')
+      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + 'zsh: command not found: ' + command + '<br/>')
       e_html.animate({ scrollTop: $(document).height() }, 0)
     } else {
       switch (command) {
         case 'help':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + '[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/>exit<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + '[sudo ]command[ Options...]<br/>You can use following commands:<br/><br/>cd<br/>ls<br/>cat<br/>clear<br/>help<br/>exit<br/><br/>Besides, there are some hidden commands, try to find them!<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'exit':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>(๑˘̴͈́꒵˘̴͈̀)۶ˮ вyё вyё~<br/>')
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>(๑˘̴͈́꒵˘̴͈̀)۶ˮ вyё вyё~<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
-          window.open("http://ursb.me")
+          window.open("https://arthas-171.github.io/x2q/")
           break
         case 'hi':
         case 'hey':
         case 'hello':
-          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>Nice to Meet U : )<br/>')
+          e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>Nice to Meet U : )<br/>')
           e_html.animate({ scrollTop: $(document).height() }, 0)
           break
         case 'clear':
@@ -59,7 +59,7 @@ let mainFunc = (input, position) => {
                   }
                   return i
                 })
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + data.join('&nbsp;&nbsp;') + '<br/>')
+                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + data.join('&nbsp;&nbsp;') + '<br/>')
                 e_html.animate({ scrollTop: $(document).height() }, 0)
               }
             }
@@ -73,10 +73,10 @@ let mainFunc = (input, position) => {
             dataType: 'jsonp',
             success: (res) => {
               if (res.code === 0) {
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.data.replace(/\n/g, '<br/>') + '<br/>')
+                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + res.data.replace(/\n/g, '<br/>') + '<br/>')
                 e_html.animate({ scrollTop: $(document).height() }, 0)
               } else if (res.code === 404) {
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
+                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
                 e_html.animate({ scrollTop: $(document).height() }, 0)
               }
             }
@@ -87,7 +87,7 @@ let mainFunc = (input, position) => {
           if (!input.split(' ')[1] || input.split(' ')[1] === '~' || input.split(' ')[1] === '~/') {
             // 回退到主目录：cd || cd ~ || cd ~/
             nowPosition = '~'
-            e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
+            e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>')
             e_html.animate({ scrollTop: $(document).height() }, 0)
             e_pos.html(nowPosition)
           } else {
@@ -102,11 +102,11 @@ let mainFunc = (input, position) => {
                 success: (res) => {
                   if (res.code === 0) {
                     nowPosition = '~/' + dir.substring(0, dir.length - 1)
-                    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
+                    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>')
                     e_html.animate({ scrollTop: $(document).height() }, 0)
                     e_pos.html(nowPosition)
                   } else if (res.code === 404) {
-                    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
+                    e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
                     e_html.animate({ scrollTop: $(document).height() }, 0)
                   }
                 }
@@ -128,7 +128,7 @@ let mainFunc = (input, position) => {
                 nowPosition = pos.slice(0, pos.length - backCount) // [~, blog]
                 nowPosition = nowPosition.join('/') // ~/blog
 
-                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
+                e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>')
                 e_html.animate({ scrollTop: $(document).height() }, 0)
                 e_pos.html(nowPosition)
               } else {
@@ -142,11 +142,11 @@ let mainFunc = (input, position) => {
                     success: (res) => {
                       if (res.code === 0) {
                         nowPosition = '~/' + dir.substring(0, dir.length - 1)
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
+                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>')
                         e_html.animate({ scrollTop: $(document).height() }, 0)
                         e_pos.html(nowPosition)
                       } else if (res.code === 404) {
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
+                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
                         e_html.animate({ scrollTop: $(document).height() }, 0)
                       }
                     }
@@ -171,11 +171,11 @@ let mainFunc = (input, position) => {
                     success: (res) => {
                       if (res.code === 0) {
                         nowPosition = '~' + pos + dir.substring(0, dir.length - 1) // ~/blog/img
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>')
+                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>')
                         e_html.animate({ scrollTop: $(document).height() }, 0)
                         e_pos.html(nowPosition)
                       } else if (res.code === 404) {
-                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
+                        e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + position + ']% ' + input + '<br/>' + res.message + '<br/>')
                         e_html.animate({ scrollTop: $(document).height() }, 0)
                       }
                     }
@@ -196,7 +196,7 @@ let pressTab = (input) => {
     command = input.split(' ')[0]
     if (command === 'l') e_input.val('ls')
     if (command === 'c') {
-      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">ursb.me</span> ' + nowPosition + ']% ' + input + '<br/>cat&nbsp;&nbsp;cd&nbsp;&nbsp;claer<br/>')
+      e_main.html($('#main').html() + '[<span id="usr">' + usrName + '</span>@<span class="host">arthas-171.github.io/x2q/</span> ' + nowPosition + ']% ' + input + '<br/>cat&nbsp;&nbsp;cd&nbsp;&nbsp;claer<br/>')
     }
 
     if (command === 'ca') e_input.val('cat')
