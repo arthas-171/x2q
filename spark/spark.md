@@ -1,12 +1,12 @@
 # spark相关笔记     
 ### [go home](../README.md)     
 =======================================================    
-## spark原理和概念
-### [Way Gate](/base.md)      
+## spark 基础概念RDD
+### [Way Gate](/rdd.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/2396162)   
 =======================================================   
 ## spark ShuffleManager 详解
-### [Way Gate](/scd.md)      
+### [Way Gate](/shuffle.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/4279683)   
 =======================================================   
 ## spark job提交过程

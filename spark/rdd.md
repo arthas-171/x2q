@@ -80,13 +80,6 @@ cogruop 对两个rdd进行协同划分
 + saveAsObjectFile算子 将分区中的每10个元素组成一个Array，然后将这个Array序列化，映射为（Null，BytesWritable（Y））的元素，写入HDFS为SequenceFile的格式
 
 
-## spark job拆解
-![跳转->spark job拆解](/job.md)
 
-## spark shuffle过程
-![跳转->spark  shuffle过程](/shuffle.md)
-
-## spark 内存模型
-![跳转->spark  内存模型](/memory.md)
 
 #### 联系邮箱 xxx_xxx@aliyun.com
