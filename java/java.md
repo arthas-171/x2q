@@ -1,3 +1,37 @@
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)
-
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png "RUNOOB")
+# java 相关笔记     
+### [go home](../README.md)     
+=======================================================    
+## java 关键字 final,static,volatile,synchronize
+### [Way Gate](/keyWord.md)      
+=======================================================   
+## java 面向对象
+### [Way Gate](/toObject.md)      
+=======================================================   
+## java 线程
+### [Way Gate](/thread.md)      
+=======================================================   
+## java 线程池
+### [Way Gate](/memory.md)      
+### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
+=======================================================   
+## java 线程通讯
+### [Way Gate](/memory.md)      
+### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
+=======================================================   
+## java 线程安全
+### [Way Gate](/memory.md)      
+### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
+=======================================================    
+## java 数据结构
+### [Way Gate](/memory.md)      
+### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
+=======================================================    
+## java 设计模式
+### [Way Gate](/memory.md)      
+### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
+=======================================================    
+## jvm 内存划分和GC
+### [Way Gate](/jvm.md)      
+### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
+=======================================================    
+#### 联系邮箱 xxx_xxx@aliyun.com
