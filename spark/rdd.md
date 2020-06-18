@@ -64,6 +64,7 @@ checkpoint本质上是将数据存储到磁盘,因为应该考虑只在关键位
 #### 对单个rdd进行聚合
 + combineByKey:这个可以精细化的聚合,有三个函数,f1:初始化数据类型,f2:单个元素往分区上合并,f3:分区间合并
 + reduceByKey:直接进行reduce操作输出结果和输入结果类型是一样的
++ foldBykey(v)(f):这个和reduceBykey一样,但是可以给一个初始值
 + partitionByKey:根据key重新分区
 + groupByKey:不会进行map端的预合并
 + aggregateByKey:给一个初始类型和初始值,之后两个函数,第一个函数是分区内合并,第二个是分区间合并

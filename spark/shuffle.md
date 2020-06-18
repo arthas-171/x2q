@@ -27,15 +27,16 @@ bypass模式和普通模式的区别
 + 写磁盘机制不同,直接将数据按key的hash值写入临时磁盘文件,之后再将文件merge
 + 没有内存中排序
 
-**sortShuffleMaanger 普通模式的图解**
+**sortShuffleMaanger 普通模式的图解**  
+
 ![图片](/static/img/up-a77db1169be9f1d1979e2dd4ac737c8e3fa.png)
 
 ## Shuffle Read
 #### 在什么时候获取数据，Parent Stage 中的一个 ShuffleMapTask 执行完还是等全部 ShuffleMapTasks 执行完？
  当 Parent Stage 的所有 ShuffleMapTasks 结束后再 fetch(拉取)。
-#### 边获取边处理还是一次性获取完再处理？
+#### 边获取边处理还是一次性获取完再处理？  
 因为 Spark 不要求 Shuffle 后的数据全局有序，因此没必要等到全部数据 shuffle 完成后再处理，所以是边 fetch 边处理。
-####获取来的数据存放到哪里？
+#### 获取来的数据存放到哪里？  
 刚获取来的 FileSegment 存放在 softBuffer 缓冲区，经过处理后的数据放在内存 + 磁盘上。
 内存使用的是AppendOnlyMap ，类似 Java 的HashMap，内存＋磁盘使用的是ExternalAppendOnlyMap，
 如果内存空间不足时，ExternalAppendOnlyMap可以将 records 进行 sort 后 spill（溢出）到磁盘上，等到需要它们的时候再进行归并
