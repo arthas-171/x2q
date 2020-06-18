@@ -9,7 +9,7 @@
 + Worker : 集群中可以运行Application代码的节点。在Spark on Yarn模式中指的就是NodeManager节点
 + task: 在Executor进程中执行任务的工作单元，多个Task组成一个Stage,注意transformation(转换)操作的宽依赖划分stage
 + Job : 包含多个Task组成的并行计算，是由Action行为触发的 ,注意action 操作触发 job
-+ stage:每个job会根据宽依赖划分成多个stage,每个stage由多个task去执行,具体task数量取决于分区数量
++ stage:每个job会根据宽依赖划分成多个stage,每个stage由多个task去执行,具体task数量取决于分区数量,或者指定的shuffle并行度
 + DAGScheduler : 根据Job构建基于Stage的DAG，并提交Stage给TaskScheduler，其划分Stage的依据是RDD之间的依赖关系
 + TaskScheduler : 将TaskSet提交给Worker（集群）运行，每个Executor运行什么Task就是在此处分配的。
 

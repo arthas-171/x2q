@@ -28,6 +28,9 @@
 ## spark 为什么比MapReduce快一些
 ### [Way Gate](/vsMR.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/2966883)   
+=======================================================   
+## spark 编程技巧
+### [Way Gate](/something.md)      
 =======================================================  
 ## spark streaming 学习笔记
 ###  todo
