@@ -16,8 +16,6 @@
 + 调用FutureTask对象的get()方法来获得子线程执行结束后的返回值
 -------
 ```
-package com.thread;
- 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -84,9 +82,7 @@ public class CallableThreadTest implements Callable<Integer>
 当然不跑出异常 或者使用try catch 也是允许的
 ## 各种实现方式提交运行实例和多个线程改写同一个静态变量实例
 -----
-```$xslt
-package com.example.demo.thread;
-
+```
 /**
  * @Auther: huowang
  * @Date: 9:43:05 2020/6/20
@@ -116,8 +112,9 @@ public class ExtendThread extends  Thread{
     }
 
 }
-package com.example.demo.thread;
-
+```
+---------------------------------------
+```
 /**
  * @Auther: huowang
  * @Date: 12:30:34 2020/6/20
@@ -147,10 +144,9 @@ public class ImplRunable implements Runnable {
 
 
 }
-package com.example.demo.thread;
-
-import java.util.concurrent.Callable;
-
+```
+-----------------
+```
 /**
  * @Auther: huowang
  * @Date: 12:37:26 2020/6/20
@@ -175,10 +171,9 @@ public class ImplCallable implements Callable<String> {
         return "cc结果:"+cc;
     }
 }
-package com.example.demo.thread;
-
-import java.util.concurrent.FutureTask;
-
+```
+-----------------
+```
 /**
  * @Auther: huowang
  * @Date: 13:01:30 2020/6/20
@@ -220,7 +215,6 @@ public class TestMain {
         t2.start();
     }
 }
-
 
 ```
 #### 联系邮箱 xxx_xxx@aliyun.com
