@@ -6,14 +6,15 @@
 + 进程:cpu调度的最小单位,一个进程里面通常可以包含多个线程
 ## 创建线程的方式
 #### 继承Thread类 
-重写run()方法,调用该线程使用start()方法
+重写run()方法,
 #### 实现Runnable接口
-实现run()方法,调用使用start() 方法
+实现run()方法,
 #### Callable和Future
 + 创建Callable接口的实现类，并实现call()方法，该call()方法将作为线程执行体，并且有返回值。
 + 创建Callable实现类的实例，使用FutureTask类来包装Callable对象，该FutureTask对象封装了该Callable对象的call()方法的返回值。
 + 使用FutureTask对象作为Thread对象的target创建并启动新线程。
 + 调用FutureTask对象的get()方法来获得子线程执行结束后的返回值
+-------
 ```
 package com.thread;
  
@@ -62,6 +63,7 @@ public class CallableThreadTest implements Callable<Integer>
  
 }
 ```
+-------
 因为java中只能单一继承extend 所以使用实现接口的方式更灵活,实现接口后还能继承其他类  
 #### 通过线程池创建 (另见线程池)
 
@@ -81,6 +83,7 @@ public class CallableThreadTest implements Callable<Integer>
 ![图片](/static/img/get5.PNG) 
 当然不跑出异常 或者使用try catch 也是允许的
 ## 各种实现方式提交运行实例和多个线程改写同一个静态变量实例
+-----
 ```$xslt
 package com.example.demo.thread;
 
