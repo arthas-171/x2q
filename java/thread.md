@@ -14,8 +14,8 @@
 + 创建Callable实现类的实例，使用FutureTask类来包装Callable对象，该FutureTask对象封装了该Callable对象的call()方法的返回值。
 + 使用FutureTask对象作为Thread对象的target创建并启动新线程。
 + 调用FutureTask对象的get()方法来获得子线程执行结束后的返回值
-#####
-```
+           
+```java
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -81,8 +81,8 @@ public class CallableThreadTest implements Callable<Integer>
 ![图片](/static/img/get5.PNG) 
 当然不跑出异常 或者使用try catch 也是允许的
 ## 各种实现方式提交运行实例和多个线程改写同一个静态变量实例
-#####  
-```
+                      
+```java
 /**
  * @Auther: huowang
  * @Date: 9:43:05 2020/6/20
@@ -113,8 +113,8 @@ public class ExtendThread extends  Thread{
 
 }
 ```
-#####  
-```
+              
+```java
 /**
  * @Auther: huowang
  * @Date: 12:30:34 2020/6/20
@@ -145,8 +145,8 @@ public class ImplRunable implements Runnable {
 
 }
 ```
-#####  
-```
+               
+```java
 /**
  * @Auther: huowang
  * @Date: 12:37:26 2020/6/20
@@ -172,8 +172,8 @@ public class ImplCallable implements Callable<String> {
     }
 }
 ```
-#####  
-```
+                   
+```java
 /**
  * @Auther: huowang
  * @Date: 13:01:30 2020/6/20
