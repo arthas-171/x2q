@@ -61,6 +61,7 @@ public class CallableThreadTest implements Callable<Integer>
  
 }
 ```
+         
 #####
 因为java中只能单一继承extend 所以使用实现接口的方式更灵活,实现接口后还能继承其他类  
 #### 通过线程池创建 (另见线程池)
