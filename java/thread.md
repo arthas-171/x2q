@@ -69,11 +69,16 @@ public class CallableThreadTest implements Callable<Integer>
 首先线程之间是**"独立的代码"**,线程自己的异常不能直接抛出而是应该自己进行try catch捕获,**只要是通过重写 run()** 方法的线程
 都不能直接 throw exception.  
 例如  
-![图片](/static/img/get1.PNG)   
+![图片](/static/img/get1.PNG)     
+   =====================     
 ![图片](/static/img/get3.PNG)   
+   =====================     
 正确写法例如
+   =====================     
 ![图片](/static/img/get2.PNG)   
+   =====================     
 ![图片](/static/img/get4.PNG)   
+   =====================     
 ##### 实现callable接口的
 实现 callable接口的 可以跑出 throw 因为本质上他还不是一个线程,他是只一个单纯的接口,如果想用太运行起来,需要放到线程池中提交,
 或者通过FutureTask(未来任务)来包装,然后通过Tread线程提交,  
@@ -215,7 +220,6 @@ public class TestMain {
         t2.start();
     }
 }
-
 ```
 #### 联系邮箱 xxx_xxx@aliyun.com
 
