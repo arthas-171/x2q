@@ -62,7 +62,7 @@ public class CallableThreadTest implements Callable<Integer>
 }
 ```
          
-#####因为java中只能单一继承extend 所以使用实现接口的方式更灵活,实现接口后还能继承其他类  
+因为java中只能单一继承extend 所以使用实现接口的方式更灵活,实现接口后还能继承其他类  
 #### 通过线程池创建 (另见线程池)
 
 ## 关于线程的异常捕获
@@ -72,19 +72,26 @@ public class CallableThreadTest implements Callable<Integer>
 ![图片](/static/img/get1.PNG)     
    =====================     
 ![图片](/static/img/get3.PNG)   
-   =====================     
-正确写法例如
-   =====================     
+    
+正确写法例如    
+
 ![图片](/static/img/get2.PNG)   
    =====================     
 ![图片](/static/img/get4.PNG)   
    =====================     
 ##### 实现callable接口的
-实现 callable接口的 可以跑出 throw 因为本质上他还不是一个线程,他是只一个单纯的接口,如果想用太运行起来,需要放到线程池中提交,
+实现 callable接口的 可以跑出 throw,如果想要运行起来,需要放到线程池中提交,
 或者通过FutureTask(未来任务)来包装,然后通过Tread线程提交,  
 实例
-![图片](/static/img/get5.PNG) 
-当然不跑出异常 或者使用try catch 也是允许的
+![图片](/static/img/get5.PNG)    
+    具体Runnable源码
+![图片](/static/img/get6.PNG)      
+    具体Callable源码
+![图片](/static/img/get7.PNG)     
+    具体Thread源码 也是实现Runnable接口
+![图片](/static/img/get8.PNG)    
+     
+当然不抛出异常 或者使用try catch 也是允许的
 ## 各种实现方式提交运行实例和多个线程改写同一个静态变量实例
                       
 ```java
