@@ -11,11 +11,11 @@
 ### [Way Gate](/thread.md)      
 =======================================================   
 ## java 线程池
-### [Way Gate](/memory.md)      
+### [Way Gate](/threadPool.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
 =======================================================   
 ## java 线程通讯
-### [Way Gate](/memory.md)      
+### [Way Gate](/threadNotify.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/4289047)  
 =======================================================   
 ## java 线程安全
