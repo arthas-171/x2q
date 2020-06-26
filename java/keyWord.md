@@ -1,4 +1,4 @@
-# java 关键字 final,static,volatile,synchronize
+# java 关键字 final,static,volatile,synchronized
 ### [go back](/java.md)      
 ### [go home](../README.md)     
 ## 关键字 final和static
