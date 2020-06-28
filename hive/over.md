@@ -14,13 +14,11 @@
 + first_value 分组内排序后 截止到当前的第一个值
 + last_value 分组内排序后 截止到当前的最后一个值
 + lead(col,n,default) 用于获取分组内向下的第n行,第一个参数是列名,第二个是向下第几行,第三个是可选默认值,如果为null的时候就用默认值顶替
-+ lag(col,n,default) 和lead相反分组内向上去第n行的值
-
++ lag(col,n,default) 和lead相反分组内向上去第n行的值   
 #### over语句 两种用法
 + over(order by col) 按照col排序累计,order by是一个默认的潜在窗口函数
 + over(partition by col ) 按照col 分区返回一个数据集
 + over(partition by col1 order by col2) 按照 col1分区并且按照col2 排序
-
 #### over连用 row_number(), rank(),dense_rank()
 + row_number() 返回行号 如果有重复只会返回一个值
 + rank() 会返回全部排名 包括并列排名,它和dense_rank()区别是 rank是跳跃排 如果有两个并列第一那么下一个就直接是第三,dense_rank()是连续拍 两个并列第一下一个还是第二

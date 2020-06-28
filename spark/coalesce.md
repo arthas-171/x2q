@@ -11,5 +11,7 @@ reparation是coalesce的特殊情况 ,reparation会将coalesce中的shuffle参�
 coalesce shuffle参数为false的情况 不会重新混洗分区,它是合并分区,比如把原来1000个分区合并成100个,父rdd和子rdd是窄依赖
 
 在程序要输出结果的时候,可以通过控制分区来控制每个输出文件的大小,使文件大小合理,可以通过计算总条数/每个文件条数来计算,期望的分区数
+
+**注意** 如果用coalesce从少分区扩展为多分区例如 100个分区到1000个分区,必须设置 参数为true 否则不会真正执行
 #### 联系邮箱 xxx_xxx@aliyun.com
 

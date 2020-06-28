@@ -11,7 +11,8 @@
 + merge() 接受来自 terminatePartial的返回结果,进行合并,hive合并两部分聚合的时候回调用这个方法
 + terminate() 终止方法 返回最终聚合函数结果
 ## 实例代码 求最大值
-```$xslt
+                                       
+```java
 /**
  * UDAF是输入多个数据行，产生一个数据行
  * 用户自定义UDAF必须继承UDFA，必须提供一个实现了UDAFEvaluator接口的内部类
@@ -55,12 +56,9 @@ public class MaxiNumber extends UDAF{
     } 
 }
 
-
-
-
 ```
 
-
+                                
 
 
 

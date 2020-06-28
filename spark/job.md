@@ -21,10 +21,14 @@
 + yarn 分配给executor资源,
 + sparkContext 的DAGScheduler生成job,根据代码构建DAG图,并且将DGA拆分成stage,每个stage对应一个taskSet(任务集合),之后将taskset发送给taskScheduler 任务调取器,executor向任务调取器,申请task执行.
 + taskScheduler 发送task给executor执行,sparkcontext发送相关代码给executor
-+ executor运行完毕task释放资源,executor是独立的jvm进程,每个task是一个线程,executor间不会直接进行通讯,每个executor内的task可以共享内存和磁盘,例如sortshuffleManager 每个executor中的task之中输出结果会在一个文件里面
-
-**图解**
-![图片](/static/img/up-592c83053a0de10844974db433d34c2aa80.png)
++ executor运行完毕task释放资源,executor是独立的jvm进程,每个task是一个线程,executor间不会直接进行通讯,每个executor内的task可以共享内存和磁盘
+## driver端和executor端进行的rpc通讯主要包括
++ driver发送广播变量
++ driver发送依赖包和代码到executor
++ executor汇报task执行情况
++ driver收集jvm执行信息,在ui界面上点击executor的时候  
+**图解**   
+![图片](/static/img/up-592c83053a0de10844974db433d34c2aa80.png)   
 [参考连接](https://www.cnblogs.com/frankdeng/p/9301485.html)
 
 #### 联系邮箱 xxx_xxx@aliyun.com
