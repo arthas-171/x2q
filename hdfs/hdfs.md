@@ -22,7 +22,7 @@
 ### [开源中国](https://my.oschina.net/u/2969788/blog/3060663)   
    
 ## hdfs上传下载文件详解
-### [Way Gate](/hdfsDetail.md)      
+### [Way Gate](/uploadAndDownload.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/4289020 )   
 
 #### 联系邮箱 xxx_xxx@aliyun.com
