@@ -9,7 +9,7 @@
 + 堆 (heap):线程共享,抛OutOfMemoryError异常,
 + 虚拟机栈 (VM stack):线程私有,抛OutOfMemoryError异常,StackOverflowError,
 + 本地方法区 (nation method stack):线程私有,抛OutOfMemoryError异常,StackOverflowError,
-+ 程序计数器 (program counter register):线程私有,不会抛异常 
++ 程序计数器 (program counter register):线程私有,不会抛异常        
 StackOverflowError异常:栈溢出,线程请求的栈深度大于jvm允许的栈的深度      
 OutOfMemoryError异常:jvm动态扩展(例如你声明了一个 巨大的数组),无法申请到足够的内存    
 #### 盗图一张
@@ -41,7 +41,7 @@ heap 分为新生代和老年代,新生代又分为伊甸园,幸存者1,幸存�
 + 幸存者1/2:伊甸园满后会触发minor GC(次要GC),将存活的对象复制幸存者1,并且把幸存者2中的存活对象也复制到幸存者1,
 保证两个幸存者空间有一个是空的,    
 ===================================
-+ 标记整理法,会暂停jvm标记所有存活的对象,然后把他们都放到内存的一端,保证内存的连续性
++ 标记整理法,会暂停jvm标记所有存活的对象,然后把他们都放到内存的一端,清除没有被标记存活的对象,保证内存的连续性
 + 复制法,会复制存活的对象从A区到另一个B区,之后把A区全部清空,不会暂停jvm
 #### 针对spark程序的GC 调试
 #调整堆大小这个东西一般调不了 运维都设置好了,还可以设置 新生代大小比例,GC指定GC的算法等
