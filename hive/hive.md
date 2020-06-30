@@ -28,7 +28,6 @@
 ### [Way Gate](/toMapReduce.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/1622638)   
 ==================================================================  
-
 ## hive join,outer join, semi join详解
 ### [Way Gate](/join.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/2875750)   
@@ -44,5 +43,7 @@
 ## hive join 解析过程
 ### [Way Gate](/joinExplain.md)      
 ### [开源中国](https://my.oschina.net/u/2969788/blog/4283251)   
-
+==================================================================  
+## hive + python 联用
+### [Way Gate](/hivePy.md)       
 #### 联系邮箱 xxx_xxx@aliyun.com
