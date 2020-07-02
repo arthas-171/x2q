@@ -9,10 +9,10 @@
 ## 对于 parquet/orc格式文件 hive sql 和 spark sql执行结果不一致
 在 spark 2.3.2的版本中 spark sql尝试使用自己的解码方式读取 parquet格式文件,以便获得
 更高的效率,但是由此可能带来结果的不一致性    
-解决方案 
+**解决方案** 
 + config("spark.sql.hive.convertMetastoreParquet","false")
-+ config("spark.sql.hive.convertMetastoreOrc","false")
-参数解释 spark.sql.hive.convertMetastoreParquet默认设置是true, 
++ config("spark.sql.hive.convertMetastoreOrc","false")   
+**参数解释** spark.sql.hive.convertMetastoreParquet默认设置是true, 
 它代表使用spark-sql内置的parquet的reader和writer(即进行反序列化和序列化),
 它具有更好地性能，如果设置为false，则代表使用 Hive的序列化方式,Orc同理
 
