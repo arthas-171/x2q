@@ -54,8 +54,9 @@ object BroadcastAndAccumulator {
 + bmap.destroy():销毁广播变量,这个将会销毁广播变量的所有数据和元数据,一旦销毁无法恢复,并且这个方法会一直阻塞,直到销毁完全结束
 + bmap.unpersist(false/true)/不持久:异步/同步删除所有发送到executor的广播变量副本,可以传入布尔值,决定是否阻塞,默认false不阻塞,异步
 这个方法将销毁广播变量在每个executor上的副本,如果之后使用广播变量需要重新发送    
-通过上面可以看出 广播变量在driver端也没有更新的方法,但是可以销毁重发,  
+通过上面可以看出 广播变量在driver端也没有更新的方法,但是可以销毁重发,     
 **自定义一个支持更新的广播变量**
+                                       
 ```scala
 import java.io.{ObjectInputStream, ObjectOutputStream}
 import org.apache.spark.broadcast.Broadcast
