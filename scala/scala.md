@@ -4,7 +4,10 @@
 ## class,object,trait,case class
 ### [Way Gate](/class.md)      
  
-## scala isInstanceOf 和 asInstanceOf
+## scala 创建关键字 isInstanceOf 和 asInstanceOf
 ### [Way Gate](/isInstanceOf.md)      
+
+## scala 数据类型
+### [Way Gate](/type.md)     
 
 

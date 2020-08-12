@@ -14,6 +14,9 @@
 相互独立,datastream->connectedStream
 + CoMap/CoFlatmap 就是执行connet后在执行map或者flatmap,datastream->connectedStream->dataStream
 + union 可以合并多条流,要求数据结构都一样,datastream->datastream
++ **flatMapWithState** 这个比较特殊,携带状态的flatmap,R是输出的类型,S是状态的类型,不需要定义输出的类型,因为承接上个
+算子的输入的;fun:(T,Option[S])=>(TraversableOnce[R],Option[S]) 输入是(输入类型,状态),输出是(定义的输出类型,状态)
+注意状态第一次进入到时候可能是没有,所以是option类型
 #### connect 和 union 的区别  
 connect 只能操作两个流,union 可以操作多个流
 union要求类型必须一致,connect可以类型不一致,之后在用coMap整成一致
@@ -26,6 +29,15 @@ union要求类型必须一致,connect可以类型不一致,之后在用coMap整�
 + 匿名函数
 + 自定义函数
 
-
+## processFunctionApi
+可以访问时间戳,水位线,以及注册定时事件
++ ProcessFunction
++ KeyedProcessFunction
++ CoProcessFunction
++ ProcessJoinFunction
++ BroadcastProcessFunction
++ KeyedBroadcastProcessFunction
++ ProcessWindowFunction
++ ProcessAllWindowFunction
 
 #### 联系邮箱 xxx_xxx@aliyun.com

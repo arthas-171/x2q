@@ -44,4 +44,7 @@ flink提供好的 window assigner 有四个
 允许处理迟到的数据,窗口已经关闭迟到的数据,窗口计算不再等待了
 ## 可选 sideOutputLateData() 讲迟到的数据放入侧输出流,可以放入另外一个流去做其他统计处理
 ## 可选 getSideOutput() 获取侧流输出
+
+
+
 #### 联系邮箱 xxx_xxx@aliyun.com
