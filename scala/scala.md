@@ -5,7 +5,7 @@
 ### [Way Gate](/class.md)      
  
 ## scala 创建关键字 isInstanceOf 和 asInstanceOf
-### [Way Gate](/isInstanceOf.md)      
+### [Way Gate](/keyword.md)      
 
 ## scala 数据类型
 ### [Way Gate](/type.md)     
