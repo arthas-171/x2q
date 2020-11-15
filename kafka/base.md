@@ -1,6 +1,6 @@
 # kafka基本概念(未完善)
-### [go back](/kafka.md)      
-### [go home](../README.md)     
+### [go back](/x2q/kafka/kafka)      
+### [go home](/x2q)         
 ## 什么是消息队列
 消息队列就是相当于一个管子,一个人从管子的入口不停的塞(push)数据进去,另一个人不停的从出口拉取(pull)数据
 ## kafka 相关概念/术语
