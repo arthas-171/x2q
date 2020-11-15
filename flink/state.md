@@ -17,7 +17,7 @@
 + union list state 联合列表状态,和列表状态基本一样,就是在故障恢复的时候不一样
 + broadcast 广播状态会把同一份状态广播给每一个算子子任务
 ## 关于 可以托管的 operation state 算子状态,非键控状态
-不是监控的状态使用,也就是说非健空的算子可以使用这些状态,状态可以理解为缓存,
+不是键控的状态使用,也就是说非健控的算子可以使用这些状态,状态可以理解为缓存,
 通过 实现 CheckpointedFunction接口来实现,实现两个方法
 + snapshotState 每次拍快照的时候实现的逻辑
 + initializeState 初始化的时候实现的逻辑
@@ -169,4 +169,8 @@ env.setStateBackend(new RocksDBStateBackend) //需要引入RocksDB的maven依赖
 默认checkpoint不开启   
 env.enableCheckpointing(1000毫秒)
 
+## 注意 **状态**和**局部变量**的区别
+例如如果我在richMap的方法中声明一个局部变量,它可以实现和状态一样的效果,而且成本更低,并且还可以不受必须在bykey后使用键控状态  
+的限制,其实二者的本质区别在于发生异常情况的容错性,状态可以被状态后端托管,flink的容错性和主动的checkpoint都会持久化状态,因此
+托管于hdfs或者rockdb中的状态,在故障恢复后不会丢失这是和局部变量的一点区别
 #### 联系邮箱 xxx_xxx@aliyun.com
