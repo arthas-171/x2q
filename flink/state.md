@@ -1,6 +1,6 @@
 #  flink 中的状态 
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink)      
+### [go home](/x2q)     
 
 ## 状态 state
 + 状态可以理解为一种**缓存**
