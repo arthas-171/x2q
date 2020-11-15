@@ -1,6 +1,6 @@
 # hive 常用参数
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)      
  
 ##### 解决数据倾斜，负载均衡      如果没有数据倾斜不要加浪费资源，比如groupby带手机号
 set hive.groupby.skewindata=true;

@@ -1,6 +1,6 @@
 # sql 中 where和join 生成中间表问题
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)       
  
 ## sql 中 where和join 生成中间表问题
 **数据库在通过连接两张或多张表来返回记录时，都会生成一张中间的临时表，然后再将这张临时表返回给用户**

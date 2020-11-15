@@ -1,6 +1,6 @@
 # hive 自定义聚合函数 UDAF
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)     
  
 ## hive 自定义聚合函数 UDAF
 **hive的 udaf 是自定义聚合函数 配合group by 使用,接受0行到多行数据 返回一个计算结果值,定义静态内部类 实现UDAFEvaluator的方法 包括入下**  

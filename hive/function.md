@@ -1,6 +1,6 @@
 # hive 常用函数
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)      
  
 ## 常用函数
 + COALESCE(T v1, T v2,…):返回参数中第一个非null值 ,如果全是null 返回null

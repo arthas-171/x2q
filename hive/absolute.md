@@ -1,6 +1,6 @@
 # hive sql 和 spark sql 执行结果不一致问题
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)   
  
 ## hive sql 进行比较例如 join条件 t1.a=t2.b 执行结果不符合预期
 可能的原因是 a列的类型和b列的类型不一致引起的,例如a是double,b是string,  

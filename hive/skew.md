@@ -1,6 +1,6 @@
 # hive 数据倾斜
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)     
  
 ## hive数据倾斜
 引起数据倾斜的操作  

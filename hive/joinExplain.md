@@ -1,6 +1,6 @@
 # hive join 操作解析过程
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)      
  
 ## hive join 操作解析过程
 ![图片](/static/img/up-7971b047b4f3fdba6f0e6369c8da69fc4fb.png)  

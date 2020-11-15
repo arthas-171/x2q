@@ -1,6 +1,6 @@
 # hive join,outer join, semi join详解
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)     
  
 ## hive join,outer join, semi join详解
 + join 最简单 两个表取交集

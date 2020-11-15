@@ -1,6 +1,6 @@
 # Hive中order by，sort by，distribute by，cluster by的区别
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)      
  
 + order by 会对数据进行全局排序 只有一个reduce 保证全局有序,数据规模比较大的时候回耗费很多时间
 + sort by 在数据进入reduce之前完成排序,可以保证局部有序,不能保证全局有序

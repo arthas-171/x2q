@@ -1,6 +1,6 @@
 # 数据仓库设计 
-### [go back](/database.md)      
-### [go home](../README.md)     
+### [go back](/x2q/database/database)      
+### [go home](/x2q)       
 ## 前言 
 数据仓库一般针对 olap(在线分析处理)的业务,olap和oltp参考https://my.oschina.net/u/2969788/blog/2875200,重点用于处理大规模数据集的分析工作,通常的操作只有添加和查询,不会涉及到严格事务要求和实时的并发操作.
 数据库的设计一般是针对 oltp业务,即在线事务处理,要求事务的一致性和实时性以及并发访问

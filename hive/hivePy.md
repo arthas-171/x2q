@@ -1,6 +1,6 @@
 # hive + python 联用
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)      
  
 ## hive + python 联用
 使用python+hive处理一些单纯sql不容易处理的问题, hive sql作为py的数据源 ,py的输出作为hive map输出,hive的聚合函数作为reduce,  

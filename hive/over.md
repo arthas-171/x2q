@@ -1,6 +1,6 @@
 # hive 分析函数及用法
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)     
  
 ## hive 分析函数及用法
 ### hive 常用于olap(On-Line Analytical Processin 在线分析处理)领域,如下,分析函数不同于聚合函数,聚合函数会返回一个值但是分析函数会返回一个数据集,通过配合可以对数据集进行分析  

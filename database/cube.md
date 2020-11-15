@@ -1,6 +1,6 @@
 # 数据立方体cube常见操作概述
-### [go back](/database.md)      
-### [go home](../README.md)     
+### [go back](/x2q/database/database)      
+### [go home](/x2q)         
 ## 数据立方体cube常见操作概述
 + 上卷:维度变换 日->月->年
 + 下钻:维度变换 年->月->日

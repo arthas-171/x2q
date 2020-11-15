@@ -1,6 +1,6 @@
 # hive存储格式和表类型,分区分桶
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)     
  
 ## 存储格式
 + textfile: 默认格式.存储为行存储

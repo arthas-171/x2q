@@ -1,6 +1,6 @@
 # hive sql转换为MapReduce过程
-### [go back](/hive.md)      
-### [go home](../README.md)    
+### [go back](/x2q/hive/hive)      
+### [go home](/x2q)   
  
 ## hive sql 转换为 MapReduce过程
 + antlr 定义sql语法规则,完成sql词法,语法解析,将sql转换为抽象语法树AST tree
