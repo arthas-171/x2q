@@ -1,6 +1,6 @@
 # spark 广播变量和累加器
 ### [go back](/x2q/spark/spark)      
-### [go home](/x2q)     
+### [go home](/x2q)  
 ## 简单示例
                                   
 ```scala

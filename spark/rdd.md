@@ -1,6 +1,6 @@
 #  spark 基本原理及概念
 ### [go back](/x2q/spark/spark)      
-### [go home](/x2q)      
+### [go home](/x2q)
 
 ## spark 运行架构
 
