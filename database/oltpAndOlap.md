@@ -1,6 +1,6 @@
 # OLTP和OLAP 在线事务处理和在线分析处理
-### [go back](/database.md)      
-### [go home](../README.md)     
+### [go back](/x2q/database/database)      
+### [go home](/x2q)        
 ## oltp和olap
 oltp和olap是两种常见的业务模式,  
 **oltp**(on line transcation processing) 在线事务处理 它具有以下特点,常见的系统如银行财务
