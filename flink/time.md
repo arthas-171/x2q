@@ -1,6 +1,6 @@
 #  flink 时间语义和水位线
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)       
 
 ## flink 时间语义
 ### Event time,事件创建时间

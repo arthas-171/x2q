@@ -1,6 +1,6 @@
 #  flink 基本算子
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)      
 
 ## flink 基本算子
 ### 转换算子 transformation

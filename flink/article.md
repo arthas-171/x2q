@@ -1,6 +1,6 @@
 #  flink 实时数仓参考文章和常用指标
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)       
 
 ## 常用指标
 + DAU:日活跃用户数，通过用户ID排重统计数据  

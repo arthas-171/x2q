@@ -1,6 +1,6 @@
 #  flink 中的容错 checkpoint/savepoint
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)       
 
 ## checkpoint是分布式task快照
 

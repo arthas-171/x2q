@@ -1,6 +1,6 @@
 #  flink end-to-end 恰好一次性
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)       
 
 ## sink 端一次性
 + 幂等写入 例如是一个hbase 覆盖key的value值也无所谓,或者输出结果是个数值,不是明细每次输出这个值都是一样的,覆盖前面的值

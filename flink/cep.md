@@ -1,6 +1,6 @@
 #  flink CEP 复杂事件处理 complex Event Processing
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)       
 
 ## cep 什么是复杂事件处理
 复杂事件就是**连续到来的若干条数据符合一定的规律**,例如 某个数据流的数据有 a,b,c,d 四种类型,他们是随机到来的

@@ -1,6 +1,6 @@
 #  flink 采坑记
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)       
 
 # 这是若干篇悲伤的故事
 ## flink ui 不显示发送的数据 Bytes Sent 0B, Records Sent 0

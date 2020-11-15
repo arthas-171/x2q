@@ -1,6 +1,6 @@
 #  flink window 窗口
-### [go back](/flink.md)      
-### [go home](../README.md)     
+### [go back](/x2q/flink/flink)      
+### [go home](/x2q)      
 
 ## window概念  
 ### window 会将无限的流数据切割分发到有限的bucket(桶)中去做计算  
