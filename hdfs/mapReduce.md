@@ -1,6 +1,6 @@
 # MapReduce框架
-### [go back](/hdfs.md)      
-### [go home](../README.md)     
+### [go back](/x2q/hdfs/hdfs)      
+### [go home](/x2q)     
 ##Mapreduce初析
 Mapreduce是一个计算框架，输入<k,v>类型的值得到一个计算之后的<k,v>类型的值,重点在于它是分布式运行的,也就是说计算的第一阶段Map会在多个不同节点上同时执行一套计算逻辑,之后再通过combiner shuffle 等阶段提交到一个reduce,reduce是对多个map执行结果的汇总(或者也可以不是汇总而且另一种计算,它的输入值是全部map的输出值)
 在运行一个mapreduce计算任务时候，任务过程被分为两个阶段：map阶段和reduce阶段，每个阶段都是用键值对（key/value）作为输入（input）和输出（output）。而程序员要做的就是定义好这两个阶段的函数：map函数和reduce函数。

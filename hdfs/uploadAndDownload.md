@@ -1,6 +1,6 @@
 # hdfs上传/下载文件过程详解 
-### [go back](/hdfs.md)      
-### [go home](../README.md)     
+### [go back](/x2q/hdfs/hdfs)      
+### [go home](/x2q)     
 ## hdfs上传文件过程详解
 + client端通知namenode要上传文件,namenode检查文件名是否已经存在,如果不存在通知可以上传,并且返回可以用于存储的datanode列表
 + client 切割文件为block块(默认大小128MB),向namenode请求上传block1,namenode返回可用的DataNode信息,
