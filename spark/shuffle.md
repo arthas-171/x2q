@@ -1,6 +1,6 @@
 # spark shuffleManager
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)        
 ## spark shufflemananger
 
 + hashShuffleManager spark1.2之后已经废弃了,除了面试官会问问没啥用,以前可以配置选择shuffleManager的具体实现,现在已经全部默认SortShuffleManager
