@@ -1,6 +1,6 @@
 # spark的宽依赖和窄依赖
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)        
 ## spark的宽依赖和窄依赖
 
 spark 划分stage取决于rdd之间的依赖,rdd之间的依赖分为宽依赖和窄依赖

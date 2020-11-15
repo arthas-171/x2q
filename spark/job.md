@@ -1,6 +1,6 @@
 # Spark 任务提交运行基本概念
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)       
 ## 基本概念
 
 + application:整个spark应用程序

@@ -1,6 +1,6 @@
 # spark 重新分区 repartition和coalesce 
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)     
 ## spark 重新分区 repartition和coalesce
 ### spark 重新分区的优势
 + 对于给定RDD只需要扫描一次的情况 重新分区没有任何好处

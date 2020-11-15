@@ -1,6 +1,6 @@
 # spark变成技巧
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)         
 ## spark编程技巧
 ### 使用更高效的数据结构(完全用基础类型可能会带来代码的难以阅读性,增加维护难度,多加点注释就行了)
 + 使用固定分隔符的string代替自定义对象

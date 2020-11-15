@@ -1,6 +1,6 @@
 # spark 内存管理总结/内存模型
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)      
 ## spark 内存管理总结
 **spark内存分为 on-heap和off-heap,堆内内存和堆外内存**
 + 堆外内存,会把数据序列化之后写入jvm内存之外,但是需要单独编码申请资源和释放资源一般不怎么样用

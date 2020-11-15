@@ -1,6 +1,6 @@
 # spark为什么比MapReduce快
-### [go back](/spark.md)      
-### [go home](../README.md)     
+### [go back](/x2q/spark/spark)      
+### [go home](/x2q)        
 ## spark为什么比MapReduce快
 
 + spark task启动时间快,因为spark采用线程池的方式启动task任务,而Hadoop每次都创建新的进程
