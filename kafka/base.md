@@ -18,7 +18,8 @@
 key的数据放入同一个partition,如果没有key就轮询放入partition
 + partition:物理上的概念,本质上是存储数据的日志文件的目录,一个topic可以包含多个partition,partition内部消息有序,partition越多broker写入的并行度越高
 ,并且下游消费的并行度也会提高,如果是spark streaming,topic的partition数决定起始的task数量
-+ offset:每条数据的编号,partition中的每条数据都会按照时间顺序递增分配一个编号
++ offset:每条数据的编号,partition中的每条数据都会按照时间顺序递增分配一个编号,消费者的offset有两种保存方式
+取决于api,对于使用zookeeper连接的会保存在zk上面,对于新版api通过brokerserver连接的会保存在kafka自带的topic"__consumer_offsets"下面
 + broker:消息的处理节点,一个broker就是一个kafka server的节点,一个kafka集群包含多个broker
 ## kafka 常用配置
 ### producer端参数
