@@ -5,8 +5,8 @@
 ## kafka 如何实现高吞吐
 
 ### 分区分段+索引
-   首先从设计层面,kafka是标准的分布式程序,采用分布系统分区partition分桶(kafka应该叫分段segment)的设计思想  
-topic是个虚拟的概念,一个主题(topic)会被分成多个partition分别储存在不同的broker中,每个broker是一台独立的机器  
+   首先从设计层面,kafka是标准的分布式程序,采用分布系统分区partition分桶(kafka应该叫分段segment)的设计思想    
+topic是个虚拟的概念,一个主题(topic)会被分成多个partition分别储存在不同的broker中,每个broker是一台独立的机器    
 partition本质上是每个机器上一个文件夹,partition内部有分为segment(段),每个段是一个文件,每次读写数据其实是操作
 这个文件,同时kafka又为segment建立了索引,index(偏移量索引文件)和timeIndex(消息时间戳索引文件),进一步提升效率  
    这种分区分段的思想是高效吞吐的前提,否则细节上再优化单节点也是无法高吞吐的
