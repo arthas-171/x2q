@@ -2,7 +2,7 @@
 ### [go back](/x2q/hdfs/hdfs)      
 ### [go home](/x2q)    
 ## 概述:
-Hadoop Distributed File System(HDFS):是一个高吞吐量的分布式文件系统.是分布式计算的基础
+Hadoop Distributed File System(HDFS):是一个高吞吐量的分布式文件系统.是离线分布式计算的基础
 
 ## 基本概念:
 NameNode (元数据节点):存储元数据信息,包括 fsimage(命名空间镜像映像),edits_log(操作日志),NameNode支持主备HA,
