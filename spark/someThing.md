@@ -61,6 +61,28 @@ object TestFlatMap {
 + 直接获取rdd的分区数,在进行合并分区也可以控制小文件,不用计算数据总条数
 + 对于kafka可以利用原始api获取到 offset,从而计算消费的数据量
 
+### 读取hdfs文件,合并小文件防止初始化task过多
+直接使用 sc.textFile("hdfs:///dir/")的方式读取hdfs上的文件,会为每个文件生成一个task,这样如果小文件特别多,初始化的task就会特别多
+但是每个task处理的数据量非常小,这样不好
+                                               
+                                                
+使用  CombineTextInputFormat,配合hadoopConfiguration 配置 可以合并小文件为 split ,每个split一个task                   
+```scala
+
+  val hadoopConfiguration = sc.hadoopConfiguration
+    hadoopConfiguration.set("mapreduce.input.fileinputformat.split.maxsize", props.getProperty("mapreduce.input.fileinputformat.split.maxsize"))
+    hadoopConfiguration.set("mapreduce.input.fileinputformat.split.minsize", props.getProperty("mapreduce.input.fileinputformat.split.minsize"))
+    hadoopConfiguration.set("mapreduce.fileoutputcommitter.marksuccessfuljobs", props.getProperty("mapreduce.fileoutputcommitter.marksuccessfuljobs"))
+    hadoopConfiguration.set("mapreduce.input.fileinputformat.split.minsize.per.node", props.getProperty("mapreduce.input.fileinputformat.split.minsize.per.node"))
+    hadoopConfiguration.set("mapreduce.input.fileinputformat.split.minsize.per.rack", props.getProperty("mapreduce.input.fileinputformat.split.minsize.per.rack"))
+    hadoopConfiguration
+
+ val rdd= session.sparkContext.newAPIHadoopFile("inputPath",
+      classOf[CombineTextInputFormat],
+      classOf[LongWritable], classOf[Text],
+      confhadoopConfiguration
+
+```
                                         
 
 #### 联系邮箱 xxx_xxx@aliyun.com
