@@ -1,6 +1,6 @@
 Scala中的数据类型
-### [go back](/scala.md)      
-### [go home](../README.md)     
+### [go back](/x2q/scala/scala)      
+### [go home](/x2q)      
   
 ## double 和 float 不能用equal比较大小 ,应该用==
                                                 

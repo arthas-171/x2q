@@ -1,6 +1,6 @@
 # class,object,trait,case class
-### [go back](/scala.md)      
-### [go home](../README.md)     
+### [go back](/x2q/scala/scala)      
+### [go home](/x2q)       
   
 ## class
 ------------------------------------------

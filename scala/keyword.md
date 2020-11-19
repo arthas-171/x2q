@@ -1,6 +1,6 @@
 Scala中isInstanceOf 和 asInstanceOf
-### [go back](/scala.md)      
-### [go home](../README.md)     
+### [go back](/x2q/scala/scala)      
+### [go home](/x2q)       
   
 ## Scala中 isInstanceOf
 ------------------------------------------
