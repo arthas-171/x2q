@@ -12,8 +12,11 @@
                                                               
 ## 详述
 ###  rowkey
-rowkey和关系型数据库的主键含义一样,用于标识唯一的一行,最大长度64KB，实际应用中长度一般为10-100bytes,rowkey存储时基于字典排序,所以
-经常需要**一起**读取的rowkey应当设计的时候前缀相同让它们存储在一起,但是如果每次读取一条,应该尽量散列分散到不同region上,避免读热点
+rowkey和关系型数据库的主键含义一样,用于标识唯一的一行,最大长度64KB，实际应用中长度一般为10-100bytes,rowkey存储时基于字典排序,
++ 先 rowkey 升序排序，
++ rowkey 相同则 column key 升序排序
++ rowkey、column key 相同则 timestamp 降序排序
+所以经常需要**一起**读取的rowkey应当设计的时候前缀相同让它们存储在一起,但是如果每次读取一条,应该尽量散列分散到不同region上,避免读热点
 行的一次读写是原子操作（不论一次读写多少列）
  hbase 查询有基于rowkey的单条查询,基于rowkey的范围扫描,scan的扫描  
 
@@ -52,7 +55,7 @@ master仅仅负责维护table和region的元数据信息,table的元数据信息
                                                                  
 一个表在行方向上被分成多个region,region是负责负载均衡的最小单元,不同的region存在不同的regionServer上,如果表不预设region那么初始化的时候
 只有一个region,会随着数据量的不断增加,而自行分裂,阈值是256MB,但是这样,如果rowkey是递增的会存在写热点的问题,只会往最新的region写数据,
-#### regionServer如何定位region
+### regionServer如何定位region
 + 通过zk里的文件/hbase/rs得到-ROOT-表的位置。-ROOT-表只有一个region
 + 通过-ROOT-表查找.META.表的第一个表中相应的HRegion位置。其实-ROOT-表是.META.表的第一个region；.META.表中的每一个Region在-ROOT-表中都是一行记录。
 + 通过.META.表找到所要的用户表HRegion的位置。用户表的每个HRegion在.META.表中都是一行记录
@@ -61,7 +64,7 @@ master仅仅负责维护table和region的元数据信息,table的元数据信息
 + -ROOT-：记录.META.表的Region信息。
 + .META.：记录用户表的Region信息
 -ROOT-、.META.与其他表没有任何区别
-#### 关于 store
+### 关于 store
 hbase把同一个列族里面的数据存在一个store里,因此我们应该把相关相似的数据放到一个列族里面,hbase是以store的大小来判断是否需要分裂region的
 + menStore 是在内存中的结构,保存修改的数据即keyValue,当到达64MB(默认),就会flush到文件里面,生成一个快照,hbase有一个独立的线程负责这个操作
 + StoreFile 就是menStore flush到磁盘的文件,StoreFile底层的存储格式HFile   
