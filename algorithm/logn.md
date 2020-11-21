@@ -28,7 +28,7 @@ O(n):表示操作n次,即逐一遍历才可以获取目标元素
 ![图片](/static/img/get9.png)
 ![图片](/static/img/get10.png)
 ![图片](/static/img/get11.png)
-n为集合长度,k为操作次数,我们现在要求k,及对k求对数函数为  k=log2n
+n为集合长度,k为操作次数,我们现在要求k,即对k求对数函数为  k=log2n
 ![图片](/static/img/get12.png)
 ![图片](/static/img/get13.png)
 ![图片](/static/img/get14.png)
