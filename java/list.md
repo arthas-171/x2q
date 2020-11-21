@@ -10,6 +10,13 @@
 ## set
 ### HashSet:线程不安全,基于hashMap实现,扩容机制和hashMap一样 16,0.75
 ## map
+java Map 接口下共有4个实现 分别是
++ hashTable
++ hashMap
++ linkedHashMap
++ treeMap
+![图片](/static/img/get12.PNG)   
+
 ### hashmMap:线程不安全,默认是链表+数组实现,1.8之后链表长度大于8将转换链表为红黑树
 ### ConcurrentHashMap:是一个线程安全的map,采用分段锁技术,保证并发性和线程安全
 ## 数组

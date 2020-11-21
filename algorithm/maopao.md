@@ -1,6 +1,6 @@
 # 冒泡排序
-### [go back](/algorithm.md)      
-### [go home](../README.md)     
+### [go back](/x2q/algorithm/algorithm)      
+### [go home](/x2q)       
 ## 代码实现,时间复杂度 n*n,n是数组长度
                                          
 ```scala
