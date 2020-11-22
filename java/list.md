@@ -1,6 +1,9 @@
 # java 中常见数据结构
 ### [go back](/java.md)      
 ### [go home](../README.md)     
+
+## java 最基本的数据结构只有两种一种是数组,一种是指针 其他结构都是基于这两种实现的
+
 ## list
 ### ArrayList:不是线程安全的,允许重复数据,本质上是一个动态数据,扩容
 + ArrayList无参构造方法默认容量为10
@@ -29,12 +32,19 @@ java Map 接口下共有4个实现 分别是
 当map中包含的Entry的数量大于等于threshold(阈值) = loadFactor(负载因子) * capacity(容量)的时候，
 且新建的Entry刚好落在一个非空的桶上，此刻触发扩容机制，将其容量扩大为2倍(围栏计算hash更有利),当size大于等于threshold的时候，
 并不一定会触发扩容机制，但是会很可能就触发扩容机制，只要有一个新建的Entry出现哈希冲突，则立刻resize
+#### hashMap 执行put方法的过程
++ 先根据 key调用hashCode方法取hash值
++ 根据key的hash值计算它的存储位置
++ 如果该位置已经存有数据后面接一个链表 
 ### ConcurrentHashMap:是一个线程安全的map,采用分段锁技术,保证并发性和线程安全,
 + concurrentHashMap由Segment数组结构和HashEntry数组结构组成
 + Segment是一种可重入锁（ReentrantLock），HashEntry用于存储键值对数据
 + 一个ConcurrentHashMap包含一个由若干个Segment对象组成的数组，每个Segment对象守护整个散列映射表的若干个桶，
 每个桶是由若干个HashEntry对象链接起来的链表，table是一个由HashEntry对象组成的数组，table数组的每一个数组成
 员就是散列映射表的一个桶
+**1.7 和 1.8 的 区别**
+1.7的时候 concurrentHashMap是用segment+hashEntry实现的
+1.8之后使用synchronize+cas 和node+Unsafe 实现,优点是粒度更细了
 
 ## 数组
 ## 链表
