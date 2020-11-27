@@ -55,31 +55,6 @@
               "id": "Different feature sets"
             }
           ]
-        },
-        {
-          "id": "Methods",
-          "children": [
-            {
-              "id": "Classifier selection"
-            },
-            {
-              "id": "Classifier fusion"
-            }
-          ]
-        },
-        {
-          "id": "Common",
-          "children": [
-            {
-              "id": "Bagging"
-            },
-            {
-              "id": "Boosting"
-            },
-            {
-              "id": "AdaBoost"
-            }
-          ]
         }
       ]
     },
