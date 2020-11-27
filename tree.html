@@ -70,7 +70,7 @@
 
 
             graph.on('node:click',  function(node) {
-                window.open( "http://www.baidu.com?"+node.id )
+                window.open( node.children.url )
             })
 
             graph.data(data);

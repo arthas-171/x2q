@@ -2,10 +2,11 @@
   "id": "Modeling Methods",
   "children": [
     {
-      "id": "Classification",
+      "id": "hdfs&MapReduce",
       "children": [
         {
-          "id": "Logistic regression"
+          "id": "hdfs 文件存储格式",
+          "url": "/x2q/hdfs/fileAndStore"
         },
         {
           "id": "Linear discriminant analysis"
@@ -30,7 +31,7 @@
         }
       ]
     },
-   
+
     {
       "id": "Regression",
       "children": [
