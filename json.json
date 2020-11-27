@@ -2,59 +2,7 @@
   "id": "Modeling Methods",
   "children": [
     {
-      "id": "hdfs&MapReduce",
-      "children": [
-        {
-          "id": "hdfs 文件存储格式"
-        },
-        {
-          "id": "hdfs 块(block) 大小的影响"
-        },
-        {
-          "id": "mapreduce执行过程概述"
-        },
-        {
-          "id": "hdfs 原理"
-        },
-        {
-          "id": "namenode HA高可用"
-        },
-        {
-          "id": "hdfs上传下载文件详解"
-        }
-      ]
-    },
-    {
-      "id": "spark",
-      "children": [
-        {
-          "id": "spark 基础概念RDD和算子"
-        },
-        {
-          "id": "spark ShuffleManager 详解"
-        },
-        {
-          "id": "spark job提交过程"
-        },
-        {
-          "id": "spark 内存管理"
-        },
-        {
-          "id": "spark 重新分区 repartition和coalesce"
-        },
-        {
-          "id": "spark的宽依赖和窄依赖"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    },
-    {
-      "id": "hive",
+      "id": "Classification",
       "children": [
         {
           "id": "Logistic regression"
@@ -83,269 +31,75 @@
       ]
     },
     {
-      "id": "数据仓库理论",
+      "id": "Consensus",
       "children": [
         {
-          "id": "Logistic regression"
+          "id": "Models diversity",
+          "children": [
+            {
+              "id": "Different initializations"
+            },
+            {
+              "id": "Different parameter choices"
+            },
+            {
+              "id": "Different architectures"
+            },
+            {
+              "id": "Different modeling methods"
+            },
+            {
+              "id": "Different training sets"
+            },
+            {
+              "id": "Different feature sets"
+            }
+          ]
         },
         {
-          "id": "Linear discriminant analysis"
+          "id": "Methods",
+          "children": [
+            {
+              "id": "Classifier selection"
+            },
+            {
+              "id": "Classifier fusion"
+            }
+          ]
         },
         {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
+          "id": "Common",
+          "children": [
+            {
+              "id": "Bagging"
+            },
+            {
+              "id": "Boosting"
+            },
+            {
+              "id": "AdaBoost"
+            }
+          ]
         }
       ]
     },
     {
-      "id": "flink",
+      "id": "Regression",
       "children": [
         {
-          "id": "Logistic regression"
+          "id": "Multiple linear regression"
         },
         {
-          "id": "Linear discriminant analysis"
+          "id": "Partial least squares"
         },
         {
-          "id": "Rules"
+          "id": "Multi-layer feedforward neural network"
         },
         {
-          "id": "Decision trees"
+          "id": "General regression neural network"
         },
         {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    },
-    {
-      "id": "kafka",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    }
-  ,
-    {
-      "id": "hbase",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    }
-  ,
-    {
-      "id": "java",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    }
-  ,
-    {
-      "id": "scala",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    }
-  ,
-    {
-      "id": "python",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    }
-  ,
-    {
-      "id": "linux",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
-        }
-      ]
-    }
-  ,
-    {
-      "id": "算法",
-      "children": [
-        {
-          "id": "Logistic regression"
-        },
-        {
-          "id": "Linear discriminant analysis"
-        },
-        {
-          "id": "Rules"
-        },
-        {
-          "id": "Decision trees"
-        },
-        {
-          "id": "Naive Bayes"
-        },
-        {
-          "id": "K nearest neighbor"
-        },
-        {
-          "id": "Probabilistic neural network"
-        },
-        {
-          "id": "Support vector machine"
+          "id": "Support vector regression"
         }
       ]
     }
