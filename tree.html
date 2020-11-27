@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Tutorial Demo</title>
+    <title>x2q</title>
 </head>
 <body>
 /* 图的画布容器 */
@@ -70,8 +70,8 @@
 
 
             graph.on('node:click',  function(evt) {
-                alert( evt.item.id)
-                alert( evt.item.url)
+                alert( evt.item._cfg.id)
+                alert( evt.item._cfg.model.url)
                 window.open("https://arthas-171.github.io"+ evt.item._cfg.url)
             })
 
