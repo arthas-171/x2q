@@ -69,9 +69,9 @@
             });
 
 
-            // graph.on('node:click',  function(node) {
-            //     window.open( "http://www.baidu.com?"+node.id )
-            // })
+            graph.on('node:click',  function(node) {
+                window.open( "http://www.baidu.com?"+node.id )
+            })
 
             graph.data(data);
             graph.render();
