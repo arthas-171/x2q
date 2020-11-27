@@ -69,9 +69,9 @@
             });
 
 
-            graph.node('node:click',  function(node) {
-                alert(node.id)
-                window.open("https://arthas-171.github.io"+ node.url )
+            graph.on('node:click',  function(evt) {
+                alert( evt.item._cfg.id)
+                window.open("https://arthas-171.github.io"+ evt.item._cfg.url )
             })
 
             graph.data(data);
