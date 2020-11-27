@@ -70,8 +70,8 @@
 
 
             graph.on('node:click',  function(evt) {
-                alert( evt.item._cfg.id)
-                alert( evt.item._cfg.url)
+                alert( evt.item.id)
+                alert( evt.item.url)
                 window.open("https://arthas-171.github.io"+ evt.item._cfg.url)
             })
 
