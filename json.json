@@ -30,34 +30,7 @@
         }
       ]
     },
-    {
-      "id": "Consensus",
-      "children": [
-        {
-          "id": "Models diversity",
-          "children": [
-            {
-              "id": "Different initializations"
-            },
-            {
-              "id": "Different parameter choices"
-            },
-            {
-              "id": "Different architectures"
-            },
-            {
-              "id": "Different modeling methods"
-            },
-            {
-              "id": "Different training sets"
-            },
-            {
-              "id": "Different feature sets"
-            }
-          ]
-        }
-      ]
-    },
+   
     {
       "id": "Regression",
       "children": [
