@@ -69,7 +69,7 @@
             });
 
 
-            graph.on('node:click',  function(node) {
+            graph.node('node:click',  function(node) {
                 alert(node.id)
                 window.open("https://arthas-171.github.io"+ node.url )
             })
