@@ -12,7 +12,7 @@
 + taskManager内部有 **NetWork** Buffer负责缓存第一层
 + NetWork依赖**netty**进行通讯,netty有ChannelOutbound/ChannelInbound  Buffer 进行第二次缓存
 + netty最终还要通过**socket**进行真正的网络间传输,socket还有Send/Receive Buffer
-如果是同一个taskManager内的task数据传递就少一层socket
+如果是同一个taskManager内的task数据传递就少一层socket   
 夸jvm的传输图
 ![图片](/static/img/2019-09-25-004831.jpg)  
 同一jvm内部传输图
