@@ -34,13 +34,40 @@ flink 1.5以前依赖于tcp协议(socket是对tcp协议的封装)自身携带的
 上面说的都是task间的反压,但是实际的job还有source和sink,会涉及到外部系统,对于source,如果是kafka
 flink支持静态的设置读取的最大量,来进行静态压力控制,对于sink如果是kafka,支持动态感知到写入的压力
 传递反压,如果是其他的第三方系统,可以就要自己去实现类似功能了
-
-
-
-
-
-
-
+## spark streaming的反压机制
++ 1.5以前没有,只有通过静态的设置Receiver(接受者)最大接收值 spark.streaming.receiver.maxRate
+对于从kafka读取的可以设置spark.streaming.kafka.maxRatePerPartition 参数来限制每次作业中每个 
+Kafka 分区最多读取的记录条数
++ 1.5以后引入**RateController(速率控制器)**,这个东西通过processingDelay(处理延迟),schedulingDelay(调度延迟)
+算出一个最大处理速率,规定每秒能处理的最大记录数,具体入下
+### (1)
+RateController继承自 StreamingListener，其监听所有作业的 onBatchCompleted 事件，并且基于
+ processingDelay 、schedulingDelay 、当前 Batch 处理的记录条数以及处理完成事件来估算出一个速率；
+ 这个速率主要用于更新流每秒能够处理的最大记录的条数
+### (2)
+InputDStreams 内部的 RateController 里面会存下计算好的最大速率，这个速率会在处理完 
+onBatchCompleted 事件之后将计算好的速率推送到 ReceiverSupervisorImpl，这样接收器就
+知道下一步应该接收多少数据了
+### (3)
+如果用户配置了 spark.streaming.receiver.maxRate 或 spark.streaming.kafka.maxRatePerPartition，
+那么最后到底接收多少数据取决于三者的最小值   
+如下图  
+![图片](/static/img/p.png) 
+## 如何启动spark streaming的反压
+配置参数spark.streaming.backpressure.enabled 设置为 true ,默认是false
+### 其他相关参数
++ spark.streaming.backpressure.initialRate： 
+启用反压机制时每个接收器接收第一批数据的初始最大速率。默认值没有设置。
++ spark.streaming.backpressure.rateEstimator：
+速率估算器类，默认值为 pid ，目前 Spark 只支持这个，大家可以根据自己的需要实现。
++ spark.streaming.backpressure.pid.proportional：
+用于响应错误的权重（最后批次和当前批次之间的更改）。默认值为1，只能设置成非负值。weight for response to "error" (change between last batch and this batch)
++ spark.streaming.backpressure.pid.integral：
+错误积累的响应权重，具有抑制作用（有效阻尼）。默认值为 0.2 ，只能设置成非负值。weight for the response to the accumulation of error. This has a dampening effect.
++ spark.streaming.backpressure.pid.derived：
+对错误趋势的响应权重。 这可能会引起 batch size 的波动，可以帮助快速增加/减少容量。默认值为0，只能设置成非负值。weight for the response to the trend in error. This can cause arbitrary/noise-induced fluctuations in batch size, but can also help react quickly to increased/reduced capacity.
++ spark.streaming.backpressure.pid.minRate：
+可以估算的最低费率是多少。默认值为 100，只能设置成非负值
 
 
 
