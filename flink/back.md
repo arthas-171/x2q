@@ -53,6 +53,13 @@ onBatchCompleted 事件之后将计算好的速率推送到 ReceiverSupervisorIm
 那么最后到底接收多少数据取决于三者的最小值   
 如下图  
 ![图片](/static/img/p.png) 
+![图片](/static/img/get8.PNG) 
+![图片](/static/img/get9.PNG) 
++ input rate：即从数据源中接收数据的速率。
++ scheduling delay：即一个batch在等待前一个batch处理完成前在队列中所等待的时间。
++ processing time：数据的处理时间，即从接收到数据开始并进行数据转换存储操作的整个过程所使用的的时间
++ total delay：即schedule delay + processing time所使用的的时间
++ Kafka 0.10 direct stream: 从kafka读取数据速率
 ## 如何启动spark streaming的反压
 配置参数spark.streaming.backpressure.enabled 设置为 true ,默认是false
 ### 其他相关参数
