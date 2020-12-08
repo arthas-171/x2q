@@ -8,7 +8,7 @@
 + 列是键值的集合
 ![图片](/static/img/get1.png)   
 
-![图片](/static/img/get2.png)   
+![图片](/static/img/get2.jpg)   
 ![图片](/static/img/get3.jpg)       
                                                               
 ## 详述
