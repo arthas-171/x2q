@@ -43,15 +43,7 @@ broker会维护一个<pid,topic,partition>对应的seqNum。 每次broker接收�
 + + latest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
 + + none:各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 + consumer端的恰好一次性需要,自己管理offset,自己定义一个两阶段提交,先缓存再提交
-## kafka高性能的日志存储机制
-## kafka高可用的副本机制
-## kafka 对磁盘io写入的优化机制
-对于每个topic的消息都会被转发至一个partition(根据key或者轮询),partition内部是多个append log文件,新的消息就会往这日志文件后面
-追加,追加的时候都会有一个递增的序列号(offset),这些日志文件会根据kafka的配置保留一段时间后删除,释放磁盘空间.  
-建立索引的方式,每隔一段数据建立一条索引,这样是为了减少索引文件的大小,每隔日志文件会分为多个,  
-如图
-![图片](/static/img/164d6adfd5dd93e9.png)
-## broker如何协同工作
+
 
 
 
