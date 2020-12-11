@@ -1,6 +1,6 @@
 # 快速排序发（分区交换排序法）
-### [go back](/algorithm.md)      
-### [go home](../README.md)     
+### [go back](/x2q/algorithm/algorithm)      
+### [go home](/x2q)    
 
 ## 概述 
 快速排序算法又叫做分区交换排序法，显然后者称呼的更准确，最早是由东尼.霍尔提出的，最好的时间复杂度是 O(n*logn)，最坏事O(n*n)

@@ -1,6 +1,6 @@
 # 2分法查找
-### [go back](/algorithm.md)      
-### [go home](../README.md)     
+### [go back](/x2q/algorithm/algorithm)      
+### [go home](/x2q)   
 ## 代码实现,
                                                 
 ```scala

@@ -1,7 +1,7 @@
 # dbscan聚类 density based spatial clustering of application with noise
 带有噪声的基于密度的空间聚类
-### [go back](/algorithm.md)      
-### [go home](../README.md)     
+### [go back](/x2q/algorithm/algorithm)      
+### [go home](/x2q)    
 ## 基本概念
 + 核心对象:若某个点的密度达到了算法设计的阈值,则将其视为核心点,
 即以改点p为圆心,r为半径,所画的圆内的点的数量不小于minPts
