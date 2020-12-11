@@ -41,4 +41,28 @@ watermark作为task的watermark,可能新来的并不是最小的
 多个输入流的话以最小的watermark为准触发计算
 ![图片](/static/img/20200804163136.png)  
 
+## 水印生成策略
++ 周期性生成水印,常用的BoundedOutOfOrdernessGenerator是定期水印生成
++ 特殊标识水印生成
+### 特殊标识水印生成(标点符号)水印生成器
+这种水印生成器,可以允许我们自己定义生成策略,根据某些特殊的数据的到来 生成水印   
+理论上可以给每条数据都打伤水印,但是**注意**!每个水印都会在下游触发一系列操作,
+因此flink不建议打过多的水印,这将降低flink的处理效率   
+表单符号水印实例如下:
+                                                         
+                                                         
+```scala
+class PunctuatedAssigner extends AssignerWithPunctuatedWatermarks[MyEvent] {
+
+    override def onEvent(element: MyEvent, eventTimestamp: Long): Unit = {
+        if (event.hasWatermarkMarker()) {
+            output.emitWatermark(new Watermark(event.getWatermarkTimestamp()))
+        }
+    }
+
+    override def onPeriodicEmit(): Unit = {
+        // don't need to do anything because we emit in reaction to events above
+    }
+}
+```                                                         
 #### 联系邮箱 xxx_xxx@aliyun.com
