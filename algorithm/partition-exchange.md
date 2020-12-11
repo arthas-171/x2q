@@ -83,6 +83,7 @@ object PartitionExchange {
     arr(b)=tmp
   }
 
+
   def main(args: Array[String]): Unit = {
     // 测试
     val arr=Array(5, 2, 9,11,3,6,8,4,0,0)
@@ -92,6 +93,7 @@ object PartitionExchange {
 
   }
 }
+
 
 
 ```
