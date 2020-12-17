@@ -28,18 +28,19 @@
 ## 利用窗口函数 统计连续登陆
 [参考连接](https://blog.csdn.net/TomAndersen/article/details/106432890)
 表结构  
-![图片](/static/img/get1.png)  
-![图片](/static/img/get2.png)  
-统计这个sql的思想就是,利用日期减去行号,因为日期是递增的+1,行号也是递增+1的,所以相减的差应该是一样的  
-我们先写一个简单的统计每个人分组的行号的sql,这里有个问题要注意一下,因为数据里面有可能出现同一个人一天多条重复登录记录的情况,因此
-我们选择行号函数的时候应该选择dense_rank(),允许并列,我们执行一个包含三个行号和计算差值的sql如下
-![图片](/static/img/get3.png)  
-输出结果
-![图片](/static/img/get4.png)  
-之后我们进行一个group by 分组的统计,根据name和diff分组,count(id)就可以知道连续登录的天数,因为如果是连续登录diff的值是一样的
 ![图片](/static/img/get5.png)  
-结果
 ![图片](/static/img/get6.png)  
+统计这个sql的思想就是,利用日期减去行号,因为日期是递增的+1,行号也是递增+1的,所以相减的差应该是一样的  
+我们先写一个简单的统计每个人分组的行号的sql,这里有个问题要注意一下,因为数据里面有可能出现同一个人一天多条重复登录记录的情况,无论采用那一种排名函数,
+都无法做到隔天的连续登录,因此我们先去重复,直接group by name login_date/或者用行号取行号等于1去重复也行
+![图片](/static/img/get1.png)  
+输出结果
+![图片](/static/img/get2.png)  
+我们进行去重复之后的结果是
+之后我们进行一个group by 分组的统计,根据name和diff分组,count(id)就可以知道连续登录的天数,因为如果是连续登录diff的值是一样的
+![图片](/static/img/get3.png)  
+结果
+![图片](/static/img/get4.png)  
 [参考连接](https://blog.csdn.net/sherri_du/article/details/53312085)
 
 
