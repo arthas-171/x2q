@@ -8,7 +8,7 @@
 号称逐条处理的flink,也不是一条一条发送的,而是一小批次一小批次的通过网络发送,中间最多会涉及三层逐级的
 如下图:
 ![图片](/static/img/2019-09-25-004607.jpg)  
-对于夸jvm(也就是夸机器的task之间传输数据来说)
+对于跨jvm(也就是跨机器的task之间传输数据来说)
 + taskManager内部有 **NetWork** Buffer负责缓存第一层
 + NetWork依赖**netty**进行通讯,netty有ChannelOutbound/ChannelInbound  Buffer 进行第二次缓存
 + netty最终还要通过**socket**进行真正的网络间传输,socket还有Send/Receive Buffer
@@ -19,6 +19,14 @@
 ![图片](/static/img/2019-09-25-004846.jpg)  
 ## flink 1.5以前的反压
 flink 1.5以前依赖于tcp协议(socket是对tcp协议的封装)自身携带的反压功能,逐层向上传递压力
+###  tcp协议是如何实现反压的
+tcp协议发送网络数据包会包含三个信息,
++ Sequence number 数据包编号
++ ACK number,保证传输的可靠性
++  Window Size:主要是通过这个来控制速率,下游接收端会通过window size告诉上游还能接受多少数据,如果满了,上游就不在放松,但是还会定期询问
+![图片](/static/img/get10.png)  
+tcp 传输的窗口是一个滑动窗口机制,如下图
+![图片](/static/img/get11.png)  
 ## flink 1.5以后的反压依赖于 credit类似于tcp协议的反压的window
 首先为啥子要改,因为1.5以前的依赖于原生协议的反压机制有两个缺陷
 + 第一,层级太多,导致反压流程过长,进而反应迟钝
