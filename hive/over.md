@@ -41,8 +41,9 @@
 ![图片](/static/img/get3.png)  
 结果
 ![图片](/static/img/get4.png)  
-### 额外 实例如果应用 sum聚合 和 over的话 是会对条求和,如果我们想要最大的应该直接 group by 而不是 over (partition) 如下
-
+## 额外 实例如果应用 sum聚合 和 over的话 是会对条求和,如果我们想要最大的应该直接 group by 而不是 over (partition) 如下
+![图片](/static/img/get7.png)  
+![图片](/static/img/get8.png)  
 [参考连接](https://blog.csdn.net/sherri_du/article/details/53312085)
 
 
