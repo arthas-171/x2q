@@ -34,7 +34,7 @@ hbase通过timestamp来维护数据的版本,写入数据的时候可以指定�
 ## hbase 架构
 ![图片](/static/img/get3.png)  
 hbase 架构分为master和regionServer(多个)(分区服务),
-### master
+### hbase master
 master 是主控服务,负责以下功能
 + 对schema的操作(建表,删表,修改表)
 + 为regionServer分配region
