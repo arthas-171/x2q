@@ -15,7 +15,7 @@ Akka Framework (一款高性能、高容错性的分布式并发应用框架。a
 天然拥有异步、分布式能力，且具有很好的并发性能和容错机制) 通讯,
 
 ### JobManager
-JobManagers 协调分布式计算。它们负责调度任务、协调 checkpoints、协调故障恢复等。
+JobManagers 协调分布式计算。它们**负责调度任务**、**协调checkpoints**、**协调故障恢复**等。
 每个 Job 至少会有一个 JobManager。高可用部署下会有多个 JobManagers，其中一个作为 leader，其余处于 standby 状态。
 ### TaskManager
 TaskManagers（也称为 workers）执行 dataflow 中的 tasks（准确来说是 subtasks ），并且缓存和交换数据 streams。

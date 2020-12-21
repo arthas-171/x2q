@@ -40,7 +40,8 @@ select id,cc1 from t lateral view explode c1 ct as cc1;
 | b  | 4 |
 | b  | 5 |
 | b  | 6 |
-                                     
+  
++ nvl 函数,把空值转换成一个其他值,例如 nvl(user_name,'null')                                     
 
 
 
