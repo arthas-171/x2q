@@ -83,6 +83,10 @@ group by new_rn;
                                                           
                                                           
 结果
-![图片](/static/img/get10.png)                                                            
+![图片](/static/img/get10.png)        
+
+
+
+rollup、cube、grouping sets  grouping_id                                                    
 #### 联系邮箱 xxx_xxx@aliyun.com
 
