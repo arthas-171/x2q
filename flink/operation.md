@@ -40,4 +40,9 @@ union要求类型必须一致,connect可以类型不一致,之后在用coMap整�
 + ProcessWindowFunction
 + ProcessAllWindowFunction
 
+## process 和 apply 区别
+这两个东西很像 都是可以拿到一批数据，进行自定义的计算，但是有区别如下
++ apply 只能用在 window后面,apply里面需要自己定义类继承 RichWindowFunction/WindowFunction，可以拿到 上下文和window对象
++ process可以接在任何算子后面，需要自己定义类，根据不同情况继承processFunctionApi各种实现，可以拿到上下文等
+
 #### 联系邮箱 xxx_xxx@aliyun.com
