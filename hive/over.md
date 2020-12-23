@@ -15,6 +15,7 @@
 + last_value 分组内排序后 截止到当前的最后一个值
 + lead(col,n,default) 用于获取分组内向下的第n行,第一个参数是列名,第二个是向下第几行,第三个是可选默认值,如果为null的时候就用默认值顶替
 + lag(col,n,default) 和lead相反分组内向上去第n行的值   
++ ntile 切片函数,会按照某个列,讲所有数据均匀的切成n片
 #### over语句 两种用法
 + over(order by col) 按照col排序累计,order by是一个默认的潜在窗口函数
 + over(partition by col ) 按照col 分区返回一个数据集
@@ -46,6 +47,46 @@
 ![图片](/static/img/get8.png)  
 [参考连接](https://blog.csdn.net/sherri_du/article/details/53312085)
 
+## ntile() 切片函数
+这个函数可以按照某一列将数据切成若干片,例如我们要统计店铺的销售额,
+我们想统计销售额前30%的店铺的平均销售额,和后70%的平均销售额   
+原始数据如下
+![图片](/static/img/get9.png)  
+核心思想是,按照价格递减切成10分, 123就是前30%,剩下的就是后70%,sql如下
+```sql
+-- 1 把记录按价格顺序拆分成10片
+drop table if exists test_dp_price_rk;
+create table test_dp_price_rk
+as
+select
+ id,
+ price,
+ NTILE(10) OVER (order by price desc) as rn
+from test_dp_price;
 
+-- 2 按片取30%和70%，分别计算平均值
+select
+  new_rn,
+  max(case when new_rn=1 then 'avg_price_first_30%' when new_rn=2 then 'avg_price_last_70%' end) as avg_price_name,
+  avg(price) avg_price
+from 
+(
+  select 
+    id,
+    price,
+    rn,
+    case when rn in (1,2,3) then 1 else 2 end as new_rn
+  from test_dp_price_rk
+)a
+group by new_rn;
+```
+                                                          
+                                                          
+结果
+![图片](/static/img/get10.png)        
+
+
+
+rollup、cube、grouping sets  grouping_id                                                    
 #### 联系邮箱 xxx_xxx@aliyun.com
 
