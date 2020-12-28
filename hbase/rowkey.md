@@ -61,4 +61,11 @@ public static List<String> queryTableTestBatch(List<String> rowkeyList) throws I
 
 scan的方式最好让相似的数据集中在一个region里面,比如还是全国的用户信息,我们每次批量取一个区的用户信息装在入内存,这种情况,我们可以用 省_市_区_userId,作为rowkey
 每次scan,扫描的数据大致会在一个region或者几个region,集中获取这些数据效率比较高,
+
+## 预分区 20个region的示例
+![图片](/static/img/get5.png)     
+可以见，其实的rowkey前缀和截止的rowkey前缀，并且可以看到请求数基本上级均匀分布在多个region的
+![图片](/static/img/get6.png)  
+这个图显示了regionServer管理的region详情
+![图片](/static/img/get7.png)  
 #### 联系邮箱 xxx_xxx@aliyun.com
