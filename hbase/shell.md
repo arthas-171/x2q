@@ -13,4 +13,5 @@
 查询rowkey为27503101551这个rowkey所在的region，结果显示它在startkey为25，截止key为30的region中，符合我们的预期
 + get 't1', 'r1', {COLUMN => 'c1'} 查询单列
 + get 't1', 'r1', 'f1' 查询单个列族 
++ create 'ubdXlRealtime_ssgj','f' ,SPLITS=>['05','10','15','20','25','30','35','40','45','50','55','60','65','70','75','80','85','90','95'] 建表并且预设region
 #### 联系邮箱 xxx_xxx@aliyun.com
