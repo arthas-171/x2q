@@ -65,6 +65,8 @@ scan的方式最好让相似的数据集中在一个region里面,比如还是全
 ## 预分区 20个region的示例
 ![图片](/static/img/get5.png)     
 可以见，其实的rowkey前缀和截止的rowkey前缀，并且可以看到请求数基本上级均匀分布在多个region的
+locality 代表Region保存在本地的StoreFile的百分比。这个指标影响了major compact的执行。
+request代表该region的请求累加总数
 ![图片](/static/img/get6.png)  
 这个图显示了regionServer管理的region详情
 ![图片](/static/img/get7.png)  

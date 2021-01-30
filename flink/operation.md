@@ -2,6 +2,10 @@
 ### [go back](/x2q/flink/flink)      
 ### [go home](/x2q)      
 
+## flink的几种流 
++ DataStream[T](数据流): 一个单纯的里面数据是T类型的流,可接算子 map/filter/flatMap/keyBy 等
++ KeyedStream[T, K](键控流):执行完keyBy算子后的流,可接状态,可以接滚动聚合算子sum/min/max/minBy/maxBy/reduce(这些算子本质基于状态)
+
 ## flink 基本算子
 ### 转换算子 transformation
 + map

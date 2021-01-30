@@ -1,4 +1,4 @@
-#  flink 中的容错 checkpoint/savepoint
+#  flink 中的容错 checkpoint/savepoint 和重启策略
 ### [go back](/x2q/flink/flink)      
 ### [go home](/x2q)       
 
@@ -35,4 +35,34 @@ env.getCheckpointConfig.setMaxConcurrentCheckpoints(1)
 env.getCheckpointConfig.enableUnalignedCheckpoints()
 ```                                               
 
+## flink的重启策略
+   **全局设置**默认的重启策略是通过Flink的flink-conf.yaml来指定的，这个配置参数restart-strategy定义了哪种策略会被采用。
+如果checkpoint未启动，就会采用no restart(不重启)策略，如果启动了checkpoint机制，但是未指定重启策略的话，就
+会采用fixed-delay策略，重试Integer.MAX_VALUE次,具体的策略如下
++ Fixed delay:固定次数重启,这种就是如果失败了会固定重启多少次,如果超过了这次数任务就彻底失败了
++ Failure rate:失败率重启,如果任务失败了,就会重启,如果重启失败次数超过了一定概率,就彻底失败
++ No restart:不重启
+### 在代码中针对单个job设置
++ 无重启
+```scala
+val env = ExecutionEnvironment.getExecutionEnvironment()
+env.setRestartStrategy(RestartStrategies.noRestart())
+```
++ 固定次数
+```scala
+val env = ExecutionEnvironment.getExecutionEnvironment()
+env.setRestartStrategy(RestartStrategies.fixedDelayRestart(
+  3, // 重启次数
+  Time.of(10, TimeUnit.SECONDS) // 延迟时间间隔
+))
+```
++ 失败率
+```scala
+val env = ExecutionEnvironment.getExecutionEnvironment()
+env.setRestartStrategy(RestartStrategies.failureRateRestart(
+  3, // 每个测量时间间隔最大失败次数
+  Time.of(5, TimeUnit.MINUTES), //失败率测量的时间间隔
+  Time.of(10, TimeUnit.SECONDS) // 两次连续重启尝试的时间间隔
+))
+```
 #### 联系邮箱 xxx_xxx@aliyun.com
