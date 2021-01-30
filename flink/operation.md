@@ -49,4 +49,33 @@ union要求类型必须一致,connect可以类型不一致,之后在用coMap整�
 + apply 只能用在 window后面,apply里面需要自己定义类继承 RichWindowFunction/WindowFunction，可以拿到 上下文和window对象
 + process可以接在任何算子后面，需要自己定义类，根据不同情况继承processFunctionApi各种实现，可以拿到上下文等
 
+## join算子
+join算在可以根据一定条件合并两个流,常规用法如下
+```scala
+stream.join(otherStream)
+    .where(<KeySelector>)
+    .equalTo(<KeySelector>)
+    .window(<WindowAssigner>)
+    .apply(<JoinFunction>)
+
+// 例子
+  as
+      .join(bs)
+      .where(_._1)
+      .equalTo(_._1)
+      .window(TumblingEventTimeWindows.of(Time.seconds(3)))
+      .apply{
+        (t1 : (String,String, Long), t2 : (String,String, Long), out : Collector[(String,String, Long,Long)]) =>
+          println("t1=>"+t1+",时间=>"+Utils.getStringDate3(t1._3))
+          println("t2=>"+t2+",时间=>"+Utils.getStringDate3(t2._3))
+            // 直接拼接到一起
+            out.collect((t1._2,t2._2,t1._3,t2._3))
+      }.name("joinedStreams")
+      .map(x=>{
+        println("结果输出=>"+x)
+      })
+```
+
++ **此外**join,可以接 滚动,滑动,session等窗口,此外还有一个 intervalJoin(间隔join)可以实现模糊匹配,
++ **此外**flink目前不支持 leftJoin/rightJoin,可以使用coGroup 协调划分来自己实现
 #### 联系邮箱 xxx_xxx@aliyun.com

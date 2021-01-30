@@ -2,6 +2,13 @@
 ### [go back](/x2q/flink/flink)      
 ### [go home](/x2q)       
 
+## checkpoint 原理
+   首先checkpoint检查点是基于taskmanager的快照(snapshot)操作,taskmanager会定期的将它管理的状态储存起来,就是拍摄一个快照,checkpoint的指定
+触发间隔后,每个source源都会定期的生成barrier(栅栏),两种情况一种是没有涉及到shuffle过程的operation当barrier到达时就会进行snapshot拍摄快照
+,如果涉及到shuffle,需要接受上游多个barrier但是barrier不是同时到达的,这个时候就需要等待所有barrier都到达,然后对齐时间时刻,再进行一次快照,
+但是这里有一个情况就是先到达的barrier所在的task,在等待的时候会继续处理数据, Operator会将数据记录（Outgoing Records）发射（Emit）出去，
+作为下游Operator的输入,交由下游去对这些做快照
+
 ## checkpoint是分布式task快照
 + checkpoint,需要主动开启,默认是不开启的
 可以进行如下配置
