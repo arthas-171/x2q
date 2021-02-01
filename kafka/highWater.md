@@ -12,4 +12,6 @@ kafka 高水位有两个作用
 + ISR:是in-sync replica,已经完成同步的副本
 
 
+
+
 #### 联系邮箱 xxx_xxx@aliyun.com
