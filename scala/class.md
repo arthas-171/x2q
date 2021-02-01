@@ -38,6 +38,10 @@ abstract class ClassName（val parameter）{}
 object Test extends ClassName(val parameter){}  
 参考[java static](../java/keyWord.md)   
 ** 注意：object不能提供构造器参数，也就是说object必须是无参的 **
+## 伴生对象/伴生类
+当一个object和一个class 同用一个名称的时候,我们称呼这个object是class的**伴生对象**,称呼class是object的**伴生类**
+伴生类和伴生对象可以互相访问私有成员,但是因为object本身是单例静态的,而scala中没有 static关键字,因此我们可以用伴生对象
+中的属性作为静态属性
 
 ## trait(相当于java 接口 interface)
 --------------------------------------------
