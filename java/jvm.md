@@ -35,7 +35,7 @@ Java堆的唯一目的就是存放对象实例和数组,GC程序主要工作的�
 线程私有,生命周期与线程相同,每个java方法在执行的同时，都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息   
 见下图:
 ![图片](/static/img/get14.png)    
-#### 本地方法区 (nation method stack)
+#### 本地方法栈 (nation method stack)
 线程私有,jvm 调用Native方法服务,c/c++语言接口之类的时候使用,与**虚拟机栈**类似只不过是执行native方法
 #### 程序计数器 (program counter register)
 线程最后翻译成cpu指令之后,cpu执行线程命令的计数器,记录每个线程执行到哪一步了
