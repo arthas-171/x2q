@@ -3,11 +3,12 @@
 ### [go home](/x2q)       
 
 ## checkpoint 原理
-   首先checkpoint检查点是基于taskmanager的快照(snapshot)操作,taskmanager会定期的将它管理的状态储存起来,就是拍摄一个快照,checkpoint的指定
-触发间隔后,每个source源都会定期的生成barrier(栅栏),两种情况一种是没有涉及到shuffle过程的operation当barrier到达时就会进行snapshot拍摄快照
-,如果涉及到shuffle,需要接受上游多个barrier但是barrier不是同时到达的,这个时候就需要等待所有barrier都到达,然后对齐时间时刻,再进行一次快照,
+   首先checkpoint指定触发间隔后,jobManger会指示每个source源都会定期的生成barrier(栅栏),他是一条特殊的数据和水位线类似,在流中的位置无法提前或者延后
+   ,barrier把无限的流分成了若干段,之后有两种情况一种是没有涉及到shuffle过程的operation
+   当barrier到达时就会对先于barrier的数据的状态等进行一次记录到检查点,后面的数据会记录到下一次检查点,如果涉及到shuffle,需要接受上游多个barrier
+   但是barrier不是同时到达的,这个时候就需要等待所有barrier都到达,然后对齐时间时刻,再进行一次检查点操作,
 但是这里有一个情况就是先到达的barrier所在的task,在等待的时候会继续处理数据, Operator会将数据记录（Outgoing Records）发射（Emit）出去，
-作为下游Operator的输入,交由下游去对这些做快照
+,之后根据状态后端的不同,这些检查点会全量或者增量(如果是rockDB)的保持在一个hdfs目录上,
 
 ## checkpoint是分布式task快照
 + checkpoint,需要主动开启,默认是不开启的
@@ -72,4 +73,8 @@ env.setRestartStrategy(RestartStrategies.failureRateRestart(
   Time.of(10, TimeUnit.SECONDS) // 两次连续重启尝试的时间间隔
 ))
 ```
+
+
+## todo  checkpoint 和 savepoint的区别
+https://zhuanlan.zhihu.com/p/79526638
 #### 联系邮箱 xxx_xxx@aliyun.com
