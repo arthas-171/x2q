@@ -76,5 +76,25 @@ env.setRestartStrategy(RestartStrategies.failureRateRestart(
 
 
 ## todo  checkpoint 和 savepoint的区别
-https://zhuanlan.zhihu.com/p/79526638
+
+  snapshot,savepoint,checkpoint 是三个概念,首先savepoint可以看做一次特殊的checkpoint,它是手动触发的一次checkpoint
+**savepoint**和**checkpoint**有以下几个区别
++ 概念：Checkpoint 是 自动容错机制 ，Savepoint 手动保存程序全局状态镜像 。
++ 目的： Checkpoint 是程序自动容错，快速恢复 。Savepoint是 程序修改后继续从状态恢复，程序升级等。
++ 用户交互:Checkpoint 是 Flink 系统行为 。Savepoint是用户触发。
++ 状态文件保留策略：Checkpoint默认程序删除，可以设置CheckpointConfig中的参数进行保留 。Savepoint会一直保存，除非用户删除 。
+
+Flink Savepoint 触发方式目前有三种：
+
++ 1. 使用 flink savepoint 命令触发 Savepoint,其是在程序运行期间触发 savepoint。
++ 2. 使用 flink cancel -s 命令，取消作业时，并触发 Savepoint。
++ 3. 使用 Rest API 触发 Savepoint，格式为：**/jobs/:jobid /savepoints**
+
+### 关于 snapshot
+snapshot 是快照的意思,Checkpoint 是一种分布式快照：在某一时刻，对一个 Flink 作业所有的 task 做一个快照（snapshot），
+并且将快照保存在 memory / file system 等存储系统中,
++ snapshot是针对task状态的一个保存
++ checkpoint是一整套容错机制,为所有task拍摄快照snapshot是checkpoint中的一个环节
+
+参考连接 https://zhuanlan.zhihu.com/p/79526638
 #### 联系邮箱 xxx_xxx@aliyun.com
