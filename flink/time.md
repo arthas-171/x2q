@@ -145,7 +145,12 @@ class PunctuatedAssigner extends AssignerWithPunctuatedWatermarks[MyEvent] {
         env.execute();
 
 ```
-参考链接 事件时间&水印 https://xie.infoq.cn/article/cbd45915022219829b16dc870
+
+
+[参考链接 事件时间&水印](https://xie.infoq.cn/article/cbd45915022219829b16dc870)
+
+[参考链接 事件时间&水印](https://xie.infoq.cn/article/cbd45915022219829b16dc870)
+
 参考链接 水印延迟和窗口延迟  https://blog.csdn.net/sinat_37719426/article/details/132452105
 
 ### 关于数据一致性

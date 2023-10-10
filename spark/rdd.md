@@ -68,6 +68,26 @@ checkpoint本质上是将数据存储到磁盘,因为应该考虑只在关键位
 + partitionByKey:根据key重新分区
 + groupByKey:不会进行map端的预合并
 + aggregateByKey:给一个初始类型和初始值,之后两个函数,第一个函数是分区内合并,第二个是分区间合并
+```java
+   // reduceByKey()：没有初始值，分区内聚合和分区间聚合逻辑一样
+   // foldByKey()： 有初始值，分区内聚合和分区间聚合逻辑一样
+   // aggregateByKey()：有初始值，分区内和分区间逻辑可以不同
+   // combineByKey() ：初始值可以变化结构，分区内和分区间逻辑不同
+        
+  //  combineByKey 和 aggregateByKey的区别
+  //  虽然两个都是可以在分区里面先预聚合 但是 combinebykey 可以修改初始化的类型, 直接看源码
+   def combineByKey[C](
+           createCombiner: V => C,   ///  上游的是v这个类型,  下游的是c这个类型
+           mergeValue: (C, V) => C,
+           mergeCombiners: (C, C) => C,
+           partitioner: Partitioner,
+           mapSideCombine: Boolean = true,
+           serializer: Serializer = null): RDD[(K, C)] = self.withScope {
+           combineByKeyWithClassTag(createCombiner, mergeValue, mergeCombiners,
+           partitioner, mapSideCombine, serializer)(null)
+           }
+```
+
 ### 两个rdd聚合
 cogruop 对两个rdd进行协同划分
 **例如**   
