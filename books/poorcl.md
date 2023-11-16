@@ -1,4 +1,4 @@
-# 数仓理论SCD(缓慢变化维度)
+# 穷查理宝典
 ### [go back](/x2q/books/books)      
 ### [go home](/x2q)    
 
