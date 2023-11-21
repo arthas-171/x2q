@@ -87,6 +87,8 @@ group by new_rn;
 
 
 
-rollup、cube、grouping sets  grouping_id                                                    
+rollup、cube、grouping sets  grouping_id        
+
+
 #### 联系邮箱 xxx_xxx@aliyun.com
 
