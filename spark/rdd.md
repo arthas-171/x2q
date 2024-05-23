@@ -34,7 +34,11 @@ rdd通过这两个机制来保证rdd容错,如果某一步的计算失败了,rdd
 + checkpoint:为了减少这种代价需要考虑使用checkpoint,尤其是在计算步骤非常多并且涉及到很多宽依赖的时候,但是
 checkpoint本质上是将数据存储到磁盘,因为应该考虑只在关键位置点设置比较好,不然也很浪费,对应spark streaming这类的应用应当设置checkpoint,以便程序中断续传
 不丢失数据,但是checkpoint并不能精确的做到完全不丢失,checkpoint和rdd.cache 不一样 cache程序结束或者意外终止后就丢失了,无论cache的级别是内存还是磁盘
-
+#### 参考 https://zdfccdanfeng.github.io/2018/09/30/spark%E5%AE%B9%E9%94%99%E6%9C%BA%E5%88%B6/
++ （1）Stage输出失败，上层调度器DAGScheduler重试。
++ （2）Spark计算中，Task内部任务失败，底层调度器重试。
++ （3）RDD Lineage血统中窄依赖、宽依赖计算。
++ （4）Checkpoint缓存。
 ## spark 常用transformation(转换)算子
 ###  单 value 类型 
 #### 输入分区与输出分区 1对1

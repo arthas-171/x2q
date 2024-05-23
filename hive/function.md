@@ -30,16 +30,16 @@ select explode(c1) from t  ;
 | a  | [1,2,3] |
 | b  | [4,5,6] |
                                     
-select id,cc1 from t lateral view explode c1 ct as cc1;
+select id,cc1 from t lateral view explode (c1) ct as cc1;
                                          
-|  id   | c1  |
-|  ----  | ----  |
-| a  | 1 |
-| a  | 2 |
-| a  | 3 |
-| b  | 4 |
-| b  | 5 |
-| b  | 6 |
+|  id   | cc1 |
+|  ----  |-----|
+| a  | 1   |
+| a  | 2   |
+| a  | 3   |
+| b  | 4   |
+| b  | 5   |
+| b  | 6   |
   
 + nvl 函数,把空值转换成一个其他值,例如 nvl(user_name,'null')                                     
 

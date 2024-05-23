@@ -1,7 +1,10 @@
-# java 中常见数据结构
+# java 中常见数据结构&数据类型
 ### [go back](/java.md)      
 ### [go home](../README.md)     
 
+## 基本的数据类型
+byte、short、int、long、float、double、boolean、char
+String 不是基本数据类型，因为它是一个对象。 它是由Java API中的 java.lang.String 类实现的
 ## java 最基本的数据结构只有两种一种是数组,一种是指针 其他结构都是基于这两种实现的
 
 ## list

@@ -80,5 +80,22 @@ bypass模式和普通模式的区别
 参数说明：当ShuffleManager为SortShuffleManager时，如果shuffle read task的数量小于这个阈值（默认是200），则shuffle write过程中不会进行排序操作，而是直接按照未经优化的HashShuffleManager的方式去写数据，但是最后会将每个task产生的所有临时磁盘文件都合并成一个文件，并会创建单独的索引文件。
 调优建议：当你使用SortShuffleManager时，如果的确不需要排序操作，那么建议将这个参数调大一些，大于shuffle read task的数量。那么此时就会自动启用bypass机制，map-side就不会进行排序了，减少了排序的性能开销。但是这种方式下，依然会产生大量的磁盘文件，因此shuffle write性能有待提高。
 
+
+
+## spark hashshufflemanager 和 sortshufflemanager的调优选择
++ hashshufflemanager会产生大量的磁盘文件
++ sort 会对下游task要处理的数据进行排序
++ sort 会避免像hash一样创建多分磁盘文件
++ 如果你的task的数量小于200 也不需要进行合并就可以用hash,或者这个时候其实会直接触发bypass模型
++ 设置shuffle manager的方式  new sparkConf().set("spark.shuffle.manager","hash")
++ 其实不需要选择hashshufflemanager 因为bypass模式和hash是一样的
+## shuffle 过程为什么需要排序
+注意这个排序并不是我们业务上要求的数据排序, 而是为了下游的task能更好的找到自己的需要的数据, 排过序之后相同的key就会在一起
+,无论是GROUP by  还是join 都能提高读取数据的效率, 相同的key在一起也会减少网络间数据传输的io开销, 不需要冲两个文件中读取key
+
+
+
+
+
 #### 联系邮箱 xxx_xxx@aliyun.com
 
