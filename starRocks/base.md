@@ -2,6 +2,15 @@
 ### [go back](/x2q/starRocks/starRocks)      
 ### [go home](/x2q)    
 
+### starrocks 为什么快
++ 分布式的架构
++ 向量化技术 向量化技术是指数据库在执行查询时，将一行一行的数据处理转变为向量化处理，即一次性处理多行数据。这种处理方式可以充分利用CPU的向量指令集
++ 优化索引
++ 优化存储结构 bitmap这种
++ 谓词下推 索引下推
++ 内存中缓存热数据
+
+
 
 ### 谓词下推和索引下推
 谓词下推（Predicate Pushdown）和索引下推（Index Pushdown）

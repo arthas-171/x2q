@@ -94,7 +94,8 @@ bypass模式和普通模式的区别
 ,无论是GROUP by  还是join 都能提高读取数据的效率, 相同的key在一起也会减少网络间数据传输的io开销, 不需要冲两个文件中读取key
 
 
-
+## spark 实现join的原理
+https://www.jianshu.com/p/97e76dddcbfb
 
 
 #### 联系邮箱 xxx_xxx@aliyun.com

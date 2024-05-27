@@ -37,8 +37,8 @@ taskmanager会根据配置的状态存储方式(内存/hdfs/RocksDB)把自己的
 + streamGraph(数据流图):根据用户代码生成的最初的图
 + jobGrap(作业图):streamGraph经过优化后生成jobGrap,提交给jobmanager的数据结构,将符合条件的多个节点chain成一个节点,尽量在一个task中计算,减少数据在节点
 间的流动,减少序列号反序列化传输消耗
-+ executionGraph:jobmanager根据jobGraph生成ExecutionGrap调度层需要的数据结构
-+ physicalGraph:jobmanager根据ExecutionGrap对job进行调度后,在各个taskmanager上部署task形成的图,并不是一个具体的数据结构
++ executionGraph(执行图):jobmanager根据jobGraph生成ExecutionGrap调度层需要的数据结构
++ physicalGraph(物理图):jobmanager根据ExecutionGrap对job进行调度后,在各个taskmanager上部署task形成的图,并不是一个具体的数据结构
 
 
 #### 联系邮箱 xxx_xxx@aliyun.com

@@ -84,7 +84,8 @@
 
 
 
-
+## 实时数仓参考
+https://tech.meituan.com/2021/08/26/data-warehouse-in-meituan-waimai.html
 
 
 
