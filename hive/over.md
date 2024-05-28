@@ -24,7 +24,8 @@
 + row_number() 返回行号 如果有重复只会返回一个值
 + rank() 会返回全部排名 包括并列排名,它和dense_rank()区别是 rank是跳跃排 如果有两个并列第一那么下一个就直接是第三,dense_rank()是连续拍 两个并列第一下一个还是第二
 
-**聚合函数 sum() max() avg() 和over(partition by col1 ) 连用可以统计分区的数量**
+**聚合函数 sum() max() avg() 和over(partition by col1 ) 连用可以统计分区的数量,
+注意!!! 使用聚合函数的时候 有没有order by条件会影响最终的聚合结果,order by 代表的意思是从当前排序行到排序结尾的聚合**
 
 ## 利用窗口函数 统计连续登陆
 [参考连接](https://blog.csdn.net/TomAndersen/article/details/106432890)
@@ -85,9 +86,28 @@ group by new_rn;
 结果
 ![图片](/static/img/get10.png)        
 
+## 开窗函数之 排序函数和聚合函数 是否应用order by 的区别
++ 如果是排序函数, order by 只起到分区内排序的作用
++ 如果是聚合函数,sum max min, 
+  + 不加order by的时候所有值都是一样的因为计算的是整个分区下面的汇总结果,
+  + 加order by, 不仅起到排序的作用,而且还会限制窗口聚合是从哪一行还是算起的作用, 简单说就是会从你当前所在行的排序位置到结尾/开头
+**** 参考 https://blog.csdn.net/qq_44823756/article/details/121586313 ****
+
+## rollup、cube、grouping sets grouping_id
+### grouping sets  grouping_id
+可以一次性完成多中粒度的聚合 例如 grouping sets ((省),(省,市),(省,市,区)) 就会进行如下聚合,grouping_id 是按照一定算法计算出的每个组合的唯一id
++ 省
++ 省+市
++ 省+市+区
+with cube和grouping sets 的区别在于,cube会直接把所有维度的组合都算出来,而不是指定的维度组合
+#### cube函数,可以实现多个任意维度的查询
++ cube(a,b,c)则首先会对(a,b,c)进行group by，
++ 然后依次是(a,b),(a,c),(a),(b,c),(b),(c),最后在对全表进行group by，他会统计所选列中值的所有组合的聚合
++ 用cube函数就可以完成所有维度的聚合工作.
+#### rullup函数是cube的子集,以最左侧维度为主,按照顺序依次进行聚合.
++ 例如聚合的维度为 col1,col2,col3 使用rollup聚合的字段分别为 col1,(col1,col2),(col1,col3),(col1,col2,col3)
 
 
-rollup、cube、grouping sets  grouping_id        
 
 
 #### 联系邮箱 xxx_xxx@aliyun.com
