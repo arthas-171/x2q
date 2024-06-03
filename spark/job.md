@@ -31,4 +31,18 @@
 ![图片](/static/img/up-592c83053a0de10844974db433d34c2aa80.png)   
 [参考连接](https://www.cnblogs.com/frankdeng/p/9301485.html)
 
+
+## spark sql 的执行过程
+### sql到rdd的过程要经过一个catalyst(催化器),他是spark sql的一个核心组件, 下面是详细过程
++ (解析)SQL 语句经过 SqlParser 解析成**未明确的逻辑计划** Unresolved LogicalPlan,是一个抽象语法树 AST;
++ (分析)使用 analyzer(分析器) 结合数据数据字典 (catalog) 进行绑定, 生成**明确的逻辑计划** resolved LogicalPlan;
++ (优化)使用 optimizer(优化器) 对 resolved LogicalPlan 进行优化,合并常量/join谓词下推/列裁剪, 生成 optimized LogicalPlan(已优化的逻辑计划);
++ (执行)使用 SparkPlan 将 LogicalPlan 转换成 PhysicalPlan(物理计划);
++ CostModel 根据过去的性能统计,选择最佳的物理执行计划
++ 使用 prepareForExecution() 将 PhysicalPlan 转换成可执行物理计划;
++ 使用 execute() 执行可执行物理计划;
++ 生成 RDD 之后就到DAG是如何调度的了
+  ![图片](/static/img/sql.png)
+参考链接 https://cloud.tencent.com/developer/article/2008340
+
 #### 联系邮箱 xxx_xxx@aliyun.com
