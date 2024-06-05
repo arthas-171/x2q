@@ -42,4 +42,6 @@ taskmanager会根据配置的状态存储方式(内存/hdfs/RocksDB)把自己的
 
 参考 https://nightlies.apache.org/flink/flink-docs-release-1.19/zh/docs/internals/job_scheduling/
 
+面试题参考 https://developer.aliyun.com/article/1117621
+
 #### 联系邮箱 xxx_xxx@aliyun.com
