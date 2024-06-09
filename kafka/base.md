@@ -44,12 +44,15 @@ broker会维护一个<pid,topic,partition>对应的seqNum。 每次broker接收�
 + + none:各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
 + consumer端的恰好一次性需要,自己管理offset,自己定义一个两阶段提交,先缓存再提交
 
+![图片](/static/img/img.png)
 ### flink 消费者是pull 拉模式
 好处如下
 + 自主决定获取消息的批量和频率
 + 避免推模式中的一些问题：如果使用push模式，生产者可能无法准确知道消费者的消费能力，难以控制推送速度
 + 适合大规模分布式系统：pull模式在分布式系统中表现更好，因为消费者可以自主地从一个或多个broker中拉取消息，无需等待broker的推送。这使得Kafka能够在大规模分布式系统中实现高效的消息消费。
 
-
+### 一些小问题
++ kafka底层数据结构是链表,因为顺序读写
++ 单个topic下面partition数据量限制是200
 
 #### 联系邮箱 xxx_xxx@aliyun.com

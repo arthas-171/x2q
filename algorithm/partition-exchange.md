@@ -5,7 +5,7 @@
 ## 概述 
 快速排序算法又叫做分区交换排序法，显然后者称呼的更准确，最早是由东尼.霍尔提出的，最好的时间复杂度是 O(n*logn)，最坏事O(n*n)
 ## 基本思想
-+ 选基:从结合中选出一个随机元素作为**基准**，pivot
++ 选基:从集合中选出一个随机元素作为**基准**，pivot
 + 分割:把小于基准的元素，都放到基准前面，大于基准的元素放到基准后面，等于的可以放到任意一边，如此把集合切割成两个集合
 + 递归子集合:对两个子集合分别递归进行上述操作，直到得到的子集合长度为1，左右下标重合
 ## 代码实现
@@ -111,5 +111,91 @@ object PartitionExchange {
     + 循环结束之后,**很重要**的一个操作是把基准元素和堆叠索引互换位置(seap),这样就能达到右侧全部元素都大于基准元素
     + 返回堆叠索引,该索引指向的就是基准元素
 + 递归函数,调用切割函数,传入 数组,左下标,右下标,跳出条件是左大于等于右,返回值是被操作后的数组        
+
+### 基于java实现的话
+```java
+
+public class Testttttt {
+    public static void main(String[] args) {
+        int[] arr = {1, 5, 2, 7, 9, 3, 4};
+        // 冒泡排序
+//        int i=0;
+//        while (i<arr.length){
+//            for(int j=0;j<arr.length;j++){
+//                if(arr[i]<arr[j]){
+//                    int tmp=arr[i];
+//                    arr[i]=arr[j];
+//                    arr[j]=tmp;
+//
+//                }
+//            }
+//            i++;
+//        }
+//        int k=0;
+//        while (k<arr.length){
+//            System.out.println(arr[k]);
+//            k++;
+//        }
+
+        // 快速排序 交叉分区排序
+        // 思想  随便找出一个元素k 把大约k的放左边, 小于的放右边 之后在对两个分区继续这个操作,指导分区的大小是1
+        int k=0;
+        while (k<arr.length){
+            System.out.print(arr[k]);
+            k++;
+        }
+        System.out.println("------");
+
+        qs(arr,0,arr.length-1);
+         k=0;
+        while (k<arr.length){
+            System.out.print(arr[k]);
+            k++;
+        }
+
+    }
+
+    public static void  qs(int[] arr,int start ,int end){
+        if(start<end){
+            int partition=getPartition(arr,start,end);
+            qs(arr,start,partition-1);
+            qs(arr,partition+1,end);
+        }
+    }
+
+    public static int getPartition(int[] arr,int start,int end){
+
+        int k=arr[end];
+        int index=start;
+        for(int i=start;i<end;i++){
+            if(k>arr[i]){
+                //直接放到最左边去 把他和现在最左边的元素交互位置
+                ex(arr,i,index);
+                index++;
+            }
+        }
+         //  这里吧 指针和最右侧的元素交换一个位置, 确保指针左边都是小于他的
+            ex(arr,end,index);
+
+
+        return  index;
+    }
+
+    public  static void ex(int[] arr,int i,int start){
+        int tmp=arr[start];
+        arr[start]=arr[i];
+        arr[i]=tmp;
+    }
+}
+
+```
+
+
+
+
+
+
+
+
 
 #### 联系邮箱 xxx_xxx@aliyun.com
