@@ -2,6 +2,70 @@
 ### [go back](/x2q/algorithm/algorithm)      
 ### [go home](/x2q)   
 
+### 单链表 插入一个元素
+```java
+ public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
+
+   //    ListNode aa = fenzu(head, 2);
+
+        //  在单链表中间插入一个元素
+        // 例如在第二和第三个元素中间插入一个 66
+        ListNode start=head;
+        ListNode end=head;
+        int ct=0;
+        while (ct<1){
+            end=end.next;
+            ct++;
+        }
+        ListNode newNode=new ListNode(66);
+        newNode.next=end.next;
+        end.next=newNode;
+        ListNode aa=start;
+
+        while (aa!=null){
+            System.out.println(aa.val);
+            aa=aa.next;
+        }
+
+
+    }
+```
+
+
+## 删除元素
+```java
+   public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        
+
+        // 删除第三个元素
+        ListNode start=head;
+        ListNode end=head;
+        int ct=0;
+        while (ct<1){
+            end=end.next;
+            ct++;
+        }
+        end.next=end.next.next;
+        ListNode aa=start;
+
+        while (aa!=null){
+            System.out.println(aa.val);
+            aa=aa.next;
+        }
+    }
+```
+
 ## 使用循环实现链表翻转
 
 ## 定义一个链表
@@ -62,4 +126,106 @@ public ListNode dg(ListNode head) {
 思考这个过程的时候不要硬性的去尝试在脑子里面压栈, 先理解掉 递归在执行head.next.next之前,其实指针已经移动到了 最后一位,然后再去理解下面的,
 并且请明白链表的最后一个元素的下一个元素是null,null的下一个还是null,不要认为下面已经"结束了".
 ![图片](/static/img/img.png)
+
+## 进阶
+### 翻转某个区间内的链表 
+例如 翻转链表前1~3元素, 后面保持不变
+```java
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        // 核心是要定义一个  翻转链表某个区间的函数,之后在找到这个区间的开始和截止
+        // 翻转链表前3个元素  
+        // 获取前三个元素
+        int flag=0;
+        ListNode start=head;
+        ListNode end=head;
+        while (flag<3){
+            end=end.next;
+            flag++;
+        }
+        ListNode aa = fz13(start, end);
+        aa.next.next.next=end;
+        while (aa!=null){
+            System.out.println(aa.val);
+            aa=aa.next;
+        }
+
+
+    }
+
+//  翻转链表某个区间
+public static  ListNode fz13(ListNode start,ListNode end){
+    ListNode pre=null;
+    ListNode curr=start;
+    ListNode tmp;
+    while (curr!=end){
+        tmp=curr.next;
+        curr.next=pre;
+        pre=curr;
+        curr=tmp;
+    }
+    return pre;
+}
+
+```
+
+### n个一组 翻转链表
+```java
+   public static void main(String[] args) {
+    ListNode head = new ListNode(1);
+    head.next = new ListNode(2);
+    head.next.next = new ListNode(3);
+    head.next.next.next = new ListNode(4);
+    head.next.next.next.next = new ListNode(5);
+    ListNode aa = fenzu(head, 2);
+    while (aa!=null){
+        System.out.println(aa.val);
+        aa=aa.next;
+    }
+}
+
+//  思路 还是要先定义好 翻转区间的函数,
+public static  ListNode fenzu(ListNode head,int k){
+    ListNode start=head;
+    ListNode end=head;
+
+    // 设置递归跳出的条件
+    // 找到第一次的时候end的位置
+    int ct=0;
+    while (ct<k){
+        ct++;
+        if(end.next!=null){
+            end=end.next;
+        }else {
+            // 这个是递归跳出的条件, 已经不够k个元素了
+            return  start;
+        }
+
+    }
+    ListNode newhead = fanzhuan(start, end); //2->1
+    // 递归调用分组翻转方法
+    // 注意递归是要先压栈 在执行, 所以思考🤔的时候从最后一次开始思考
+    start.next= fenzu(end,k);
+    return  newhead;
+}
+
+private static ListNode fanzhuan(ListNode start, ListNode end) {
+    ListNode pre=null;
+    ListNode curr=start;
+    ListNode tmp=null;
+    while (curr!=end){
+        tmp=curr.next;
+        curr.next=pre;
+        pre=curr;
+        curr=tmp;
+    }
+    return  pre;
+}
+```
+## 参考链接
+https://labuladong.online/algo/data-structure/reverse-nodes-in-k-group/#%E4%BA%8C%E3%80%81%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0
 #### 联系邮箱 xxx_xxx@aliyun.com

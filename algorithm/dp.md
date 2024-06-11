@@ -95,4 +95,81 @@ public class Dp {
 ### 参考链接 写的非常好
 + https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97.md
 
+
+### 进阶题, 接雨水
+如下图, 求接到的雨水数量, 
+![图片](/static/img/img_1.png)
+#### 思路1 
+我tm直接算!!!,
++ 把这个图转换成数组输入是这样的 [0,1,0,2,1,0,1,3,2,1,2,1], 总的长度是12
++ 其实我们要计算的就是这12个位置,每个上面能存到多少"雨水"
++ 我们可以看出, 一个位置上面能不能存"雨水",其实取决于他左右的位置是不是比他高, 注意这个左右并不限于紧邻的左右,
++ 那具体能存多少"雨水",其实取决于左右里面最小的那个高度
++ so, 我们把每个位置左右的高度都算出来, 在分别进行比较 然后再累加就行了
+```java
+
+    // 42. 接雨水
+    // 暴力
+    // [0,1,0,2,1,0,1,3,2,1,2,1]
+    public static int trap(int[] height) {
+      int jg=0;
+      if(height.length<=2){
+          // 那是存不到水的
+          return jg;
+      }
+      // 如果大于了 就一个一个的计算
+        for(int i=0;i<height.length;i++){
+            //  我们先把这个位置的左右最大的元素给定义出来, 当然这里这是假设 方便后面操作
+            int l_max=height[0];
+            int r_max=height[height.length-1];
+
+            // 真正开始寻找这个节点左边最大的元素是多少
+            for(int j=0;j<=i;j++){
+                l_max=Math.max(l_max,height[j]);
+            }
+            // 寻找右边
+            for(int k=i;k<height.length;k++){
+                r_max=Math.max(r_max,height[k]);
+            }
+            // 至此以上, 已经找到了 这个元素左右最大的元素了
+            // 之后我们只需要用左右里面比较小的那个 去减掉当前元素就是 能存到的水了
+            int i_min = Math.min(l_max, r_max);
+            jg=jg+(i_min-height[i]);
+        }
+
+      return jg;
+    }
+```
+#### 使用动态规划的思路
+其实就是弄个额外的数组去存储 分别从左到右  和 从右到左, 每个位置的最高值(如果当天位置比前一个高,则更新最高值为当前值, 如果没有则用前一个位置的值作为最高值)
+```java
+ /**
+     *   动态规划
+     * @param height
+     * @return
+     */
+    public static int trap1(int[] height) {
+        int len = height.length;
+        if(len<=1) return 0;
+        int res = 0;
+        //  两个空数组 分别记录从左边 和从右边开始  每个位置及以后最高的高度是多少, 如果后面的高度小于前面的不会被更新
+        //  int[] nums = {0,1,0,2,1,0,1,3,2,1,2,1};
+        // 这个位置的高度=max(这个位置高度,历史最高值)
+        int[] l_max = new int[len];
+        int[] r_max = new int[len];
+        l_max[0] = height[0];
+        r_max[len-1] = height[len-1];
+        for (int i = 1; i < len; i++) {
+            l_max[i] = Math.max(height[i],l_max[i-1]);
+        }
+        for(int i = len-2; i>=0;i--){
+            r_max[i] = Math.max(height[i],r_max[i+1]);
+        }
+        for (int i = 0; i < len; i++) {
+            res += Math.min(l_max[i],r_max[i])-height[i];
+        }
+        return res;
+    }
+```
+
 #### 联系邮箱 xxx_xxx@aliyun.com
