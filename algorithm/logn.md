@@ -33,4 +33,10 @@ n为集合长度,k为操作次数,我们现在要求k,即对k求对数函数为 
 ![图片](/static/img/get13.png)
 ![图片](/static/img/get14.png)
 以2为底数,log 1024的对数,计算结果是10
+
+## 常见算法的时间复杂度
++ 冒泡排序 n*n
++ 二分法查找 log(n)
++ 快速排序法 最好n*log(n), 最坏 n*n
+
 #### 联系邮箱 xxx_xxx@aliyun.com
