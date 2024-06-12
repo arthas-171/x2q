@@ -46,32 +46,6 @@
 public class N3 {
     public static void main(String[] args) {
         int[] nums = {-4, -3, -1, -1, 0, 1, 1, 2, 2};
-        //0   1  2  3 4 5 6 7 8
-//        Arrays.sort(nums);
-//        for(int l=0;l<nums.length;l++){
-//            System.out.println(nums[l]);
-//        }
-//
-//         //  注意  可以利用 数组是有顺序的特性
-//        int target=3;
-//        int start=0;
-//        int end=nums.length-1;
-//        while (start<end){
-//            int rs=nums[start]+nums[end];
-//            if(rs==target){
-//                System.out.println(start);
-//                System.out.println(end);
-//                System.out.println("--------------");
-//                break;
-//            }else if(rs<target){
-//                // 如果结果比目标值小, 因为数组是递增的 所以 左边加一个(换一个更大的数试试)
-//                start++;
-//            }else{
-//                // 结果比目标值大 就换一个更小的数据试试   右边往左挪一个
-//                end--;
-//            }
-//        }
-//    }
 
         HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>();
 
