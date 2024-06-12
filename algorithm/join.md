@@ -18,9 +18,9 @@ public class IJoin {
     public static void main(String[] args) {
 //        实现一个函数，对于输入一个区间数组，合并其中有交集的区间。
 //        输入的区间数组已经按区间起点排序
-      //  int[][] arr ={{1,2},{3,6},{5,9},{11,16},{15,18}};
-        int[][] arr ={{1,2},{4,6},{5,9},{11,16},{15,18}};
-       // int[][] arr ={{1,3},{2,6},{5,9},{11,13},{15,18}};
+      //  int[][] arr =[[1,2],[3,6],[5,9],[11,16],[15,18]];
+        //int[][] arr =[[1,2],[4,6],[5,9],[11,16],[15,18]];
+       // int[][] arr =[[1,3],[2,6],[5,9],[11,13],[15,18]];
         int flag=0;
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         while (flag< arr.length){
