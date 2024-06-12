@@ -32,6 +32,8 @@ return res;
 
 for (int i = 0; i < nums.length; i++) {
        // 拿到nums里面的每个元素和他前面的元素都比一遍, 两层for循环 时间复杂的n*n
+        ///  这个地方为啥要小于i呢  因为我们算的是以i结尾, 所以不用比i后面的就行了, 后面就不是以i结尾了
+        /// 也不需要 j=i的情况, 因为那种是自己和自己比不可能大于
         for (int j = 0; j < i; j++) {
         // 寻找 nums[0..j-1] 中比 nums[i] 小的元素
         if (nums[i] > nums[j]) {
@@ -75,6 +77,8 @@ public class Dp {
 
             // 把数组里面每个元素都和他前面的比一遍, 如果大于了就在对应的dp里面+1
             for(int i=0;i<nums.length;i++){
+              ///  这个地方为啥要小于i呢  因为我们算的是以i结尾, 所以不用比i后面的就行了, 后面就不是以i结尾了
+              /// 也不需要 j=i的情况, 因为那种是自己和自己比不可能大于
                 for (int j=0;j<i;j++){
                     if(nums[i]>nums[j]){
                         dp[i]=Math.max(dp[i],dp[j]+1);
