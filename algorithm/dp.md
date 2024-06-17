@@ -179,4 +179,67 @@ public class Dp {
     }
 ```
 
+
+#### 使用动态规划 二维数组中最短路径, 或者最长路径 或者路径上的最多奖励
++ https://leetcode.cn/problems/0i0mDW/description/
++ https://www.nowcoder.com/practice/72a99e28381a407991f2c96d8cb238ab?tpId=134&tqId=33854&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26pageSize%3D50%26search%3D%26tab%3D%25E5%2590%258D%25E4%25BC%2581%25E7%259C%259F%25E9%25A2%2598%26topicId%3D134&difficulty=undefined&judgeStatus=undefined&tags=&title=
+
+
+
+```java
+ /**
+     *  最多奖励
+     *
+     */
+
+     public static int maxPathSum(int[][] grid){
+         //  我们求解最长路径, 或者是能获取到的最多奖品
+         //  动态规划的思想就是用另一外的一个空间去存储, 每个节点对应的期望值
+         //  我们弄一个相同大小的二维数组去存储
+         // 先获取到当前二维数组的长和高
+         int x=grid.length;
+         int y=grid[0].length;
+         int [][] dp=new int[x][y];
+         // 因为第一横排和 第一竖排 其实只有一种路径可以走  所以先把他们算出来
+         // 第一个dp的值是固定的, 因为没得选,
+         dp[0][0]=grid[0][0];
+         // 横排从下标1开始
+         for(int i=1;i<x;i++){
+             dp[i][0]=dp[i-1][0]+grid[i][0];
+         }
+         // 竖排
+         for(int j=1;j<y;j++){
+             dp[0][j]=dp[0][j-1]+grid[0][j];
+         }
+         // 在算 身下可能涉及到两种选择的
+         // 双重for循环搞定
+         for(int i=1;i<x;i++){
+             for(int j=1;j<y;j++){
+                 // 这个地方就看你是想要 最大 还是最小了 math.max or min
+                 dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1])+grid[i][j];
+             }
+         }
+         return dp[x-1][y-1];
+     }
+```
+
+
+#### 上台阶问题
++ https://leetcode.cn/problems/climbing-stairs/description/
++ 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+
+##### 思路
+上到第三阶的方法数等于 上到第一节的方法数+第二节的方法数, 一次类推
+```java
+ public int climbStairs(int n) {
+ int s1 = 0, s2 = 0, s3 = 1;
+        for (int i = 1; i <= n; ++i) {
+            p = q; 
+            q = r; 
+            r = p + q;
+        }
+        return r;
+
+    }
+```
 #### 联系邮箱 xxx_xxx@aliyun.com

@@ -78,4 +78,30 @@ stream.join(otherStream)
 
 + **此外**join,可以接 滚动,滑动,session等窗口,此外还有一个 intervalJoin(间隔join)可以实现模糊匹配,
 + **此外**flink目前不支持 leftJoin/rightJoin,可以使用coGroup 协调划分来自己实现
+
+## flink sql 的join语法
+参考文档 https://nightlies.apache.org/flink/flink-docs-release-1.19/zh/docs/dev/table/sql/queries/joins/
++ 1 正常的内连接 左连接 右连接 全连接, 这个通过状态中保留数据来实现, 主要 如果有一侧新增了满足条件的数据, 历史上全部符合条件都会被join出来(只要状态没过期)
++ intervalJoin 允许一个between时间间隔的join
+
+```sql
+SELECT *
+FROM Orders o, Shipments s
+WHERE o.id = s.order_id
+AND o.order_time BETWEEN s.ship_time - INTERVAL '4' HOUR AND s.ship_time
+```
+
++ Temporal join ,状态表/维表join, 历史上有满足条件的不会被join出来 只会join当前的, 可以制定时间处理时间或event time
+```sql
++ SELECT 
+     order_id,
+     price,
+     orders.currency,
+     conversion_rate,
+     order_time
+FROM orders
+LEFT JOIN currency_rates FOR SYSTEM_TIME AS OF orders.order_time
+ON orders.currency = currency_rates.currency;
+```
+
 #### 联系邮箱 xxx_xxx@aliyun.com
